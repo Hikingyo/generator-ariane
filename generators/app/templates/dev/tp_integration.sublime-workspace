@@ -1,0 +1,419 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"p",
+				"padding"
+			],
+			[
+				"font",
+				"font-size"
+			],
+			[
+				"b",
+				"border-bottom"
+			],
+			[
+				"mar",
+				"margin-left"
+			],
+			[
+				"il",
+				"inline-block"
+			],
+			[
+				"inli",
+				"inline-block"
+			],
+			[
+				"border-r",
+				"border-right"
+			],
+			[
+				"back",
+				"background-color"
+			],
+			[
+				"padd",
+				"padding-left"
+			],
+			[
+				"nb",
+				"nb_membres"
+			],
+			[
+				"pad",
+				"padding-right"
+			],
+			[
+				"s",
+				"span	Tag"
+			],
+			[
+				"bac",
+				"background-image"
+			],
+			[
+				"nb_mem",
+				"nb_membres_clan_actif"
+			],
+			[
+				"nb_me",
+				"nb_membres_clan_actif"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "index.html",
+			"settings":
+			{
+				"buffer_size": 9976,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "style/less/main.less",
+			"settings":
+			{
+				"buffer_size": 8657,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/C/Users/hikingyo/Documents/dev_web/projets/tp_integration/gulpfile.js",
+			"settings":
+			{
+				"buffer_size": 1753,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"last_filter": "rei",
+		"selected_items":
+		[
+			[
+				"rei",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"rein",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 512.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/Users/hikingyo/Documents/dev_web/projets/tp_integration",
+		"/C/Users/hikingyo/Documents/dev_web/projets/tp_integration/dev",
+		"/C/Users/hikingyo/Documents/dev_web/projets/tp_integration/dev/style",
+		"/C/Users/hikingyo/Documents/dev_web/projets/tp_integration/dev/style/less"
+	],
+	"file_history":
+	[
+		"/C/wamp/www/bouzouks/application/controllers/staff/gerer_action_clan.php",
+		"/C/cmder/vendor/profile.ps1",
+		"/C/wamp/www/bouzouks/application/views/staff/gerer_action_clan.php",
+		"/C/Users/hikingyo/Documents/dev_web/projets/tp_integration/dev/index.html",
+		"/C/Users/hikingyo/Documents/dev_web/projets/tp_integration/gulpfile.js",
+		"/C/Users/hikingyo/Documents/dev_web/projets/tp_integration/dev/style/less/main.less",
+		"/C/Users/hikingyo/Documents/dev_web/projets/tp_integration/node_modules/gulp-useref/node_modules/lodash/internal/reInterpolate.js",
+		"/C/Users/hikingyo/Documents/dev_web/projets/tp_integration/index.html",
+		"/C/Users/hikingyo/Documents/dev_web/projets/tp_integration/style/main.less",
+		"/C/Users/hikingyo/Documents/dev_web/projets/tp_integration/dist/index.html",
+		"/C/Users/hikingyo/Documents/dev_web/projets/tp_integration/style/main.css",
+		"/C/Users/hikingyo/Documents/dev_web/projets/tp_integration/package.json",
+		"/C/Users/hikingyo/Documents/dev_web/projets/tp_integration/css/main.less",
+		"/C/Users/hikingyo/Documents/dev_web/projets/tp_integration/css/min/main.css",
+		"/C/wamp/www/bouzouks/application/controllers/clans.php",
+		"/C/wamp/www/bouzouks/application/views/clans/gerer.php",
+		"/C/wamp/www/bouzouks/webroot/css/style.css",
+		"/C/wamp/www/bouzouks/webroot/css/vlux.css",
+		"/C/wamp/www/bouzouks/application/servers/map_server.js",
+		"/C/wamp/www/bouzouks/application/libraries/Lib_clans.php",
+		"/C/wamp/www/bouzouks/application/controllers/webservices_map.php",
+		"/C/wamp/www/bouzouks/application/controllers/visiteur.php",
+		"/C/wamp/www/bouzouks/application/servers/map_serveur.sh",
+		"/C/Users/hikingyo/Documents/NetBeansProjects/TPLectureFichier/teste1640.txt",
+		"/C/Users/hikingyo/Documents/NetBeansProjects/TPLectureFichier/teste1746.bin",
+		"/C/wamp/www/bouzouks/application/config/development/config.php",
+		"/C/wamp/www/bouzouks/application/views/layouts/site.php",
+		"/C/wamp/bin/apache/apache2.4.9/conf/extra/httpd-vhosts.conf",
+		"/C/Users/hikingyo/AppData/Roaming/Sublime Text 3/Packages/Default/Default (Windows).sublime-keymap",
+		"/C/Users/hikingyo/AppData/Roaming/Sublime Text 3/Packages/User/Default (Windows).sublime-keymap",
+		"/C/wamp/www/bouzouks/application/views/staff/gerer_map_tchat/moderer_map_tchats.php",
+		"/C/wamp/www/bouzouks/application/views/vlux/map_creator.php",
+		"/C/wamp/www/bouzouks/application/views/vlux/map_walker.php",
+		"/C/wamp/www/bouzouks/application/views/layouts/footer.php",
+		"/C/wamp/www/bouzouks/webroot/javascript/vlux/map_creator.js",
+		"/C/wamp/bin/apache/apache2.4.9/conf/original/extra/httpd-vhosts.conf",
+		"/C/wamp/bin/apache/apache2.4.9/conf/httpd.conf",
+		"/C/wamp/bin/apache/apache2.4.9/wampserver.conf",
+		"/C/wamp/bin/apache/apache2.4.9/conf/original/httpd.conf",
+		"/C/wamp/vhosts/none",
+		"/C/wamp/bin/apache/apache2.4.9/manual/vhosts/examples.html.fr",
+		"/C/wamp/bin/apache/apache2.4.9/manual/howto/index.html.fr",
+		"/E/maj_sql_1111.sql",
+		"/C/wamp/www/bouzouks/application/controllers/anpe.php",
+		"/E/bobz.sql"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 90.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"div",
+			"div class=\"bulle",
+			"section",
+			"clea",
+			"20",
+			"imagemin",
+			"../img",
+			";\nvar ",
+			"nb_membres_clan_actif",
+			"nb_membres_clan",
+			"foreach"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 9976,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3941,
+								3941
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 653.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "style/less/main.less",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 8657,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3257,
+								3257
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LESS/LESS.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2730.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/C/Users/hikingyo/Documents/dev_web/projets/tp_integration/gulpfile.js",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 1753,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "tp_integration.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"rei",
+				"node_modules\\gulp-useref\\node_modules\\lodash\\internal\\reInterpolate.js"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 279.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

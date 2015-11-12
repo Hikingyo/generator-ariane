@@ -1,13 +1,13 @@
 # generator-cionfire [![Build Status](https://secure.travis-ci.org/hikingyo/generator-cionfire.png?branch=master)](https://travis-ci.org/hikingyo/generator-cionfire)
 
-> [Yeoman](http://yeoman.io) generator
+> [Cionfire](http://yeoman.io) generator
 
 
 ## Getting Started
 
-### What is Yeoman?
+### What is Cionfire?
 
-Trick question. It's not a thing. It's this guy:
+Trick question.It's not this guy . It's  a thing:
 
 ![](http://i.imgur.com/JHaAlBJ.png)
 
@@ -19,9 +19,9 @@ Not every new computer comes with a Yeoman pre-installed. He lives in the [npm](
 npm install -g yo
 ```
 
-### Yeoman Generators
+### Cionfire Generators
 
-Yeoman travels light. He didn't pack any generators when he moved in. You can think of a generator like a plug-in. You get to choose what type of application you wish to create, such as a Backbone application or even a Chrome extension.
+With our generator, you can install an highly configurable development environment for php web app. From front end to back end, you can make plenty of choices to set up a workflow like at home.
 
 To install generator-cionfire from npm, run:
 
@@ -35,11 +35,10 @@ Finally, initiate the generator:
 yo cionfire
 ```
 
-### Getting To Know Yeoman
+### Getting To Know Cionfire
 
-Yeoman has a heart of gold. He's a person with feelings and opinions, but he's very easy to work with. If you think he's too opinionated, he can be easily convinced.
-
-If you'd like to get to know Yeoman better and meet some of his friends, [Grunt](http://gruntjs.com) and [Bower](http://bower.io), check out the complete [Getting Started Guide](https://github.com/yeoman/yeoman/wiki/Getting-Started).
+Because it's fastidious to install and set up multiples tools for each new project, we have created this generator to help you to fireup this step.
+Because you prefere Scass to Less, Boostrap to Foundation, TypeScript to CoffeeScript ( what, whait, you don't like coffee Oo ...), or you just want to run a simple HTML project, we have make this generator to help you.
 
 
 ## License

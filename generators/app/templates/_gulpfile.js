@@ -1,3 +1,6 @@
+/**
+ * gulpfile.js generated automaticly by generator-cionfire
+ */
 var gulp = require('gulp'),
 	useref = require('gulp-useref')<% if (includeLess){ %>,
 	less = require('gulp-less'),

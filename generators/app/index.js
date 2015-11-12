@@ -4,6 +4,7 @@ var chalk = require('chalk');
 var yosay = require('yosay');
 var _s = require('underscore.string');
 var mkdirp = require('mkdirp');
+var wiredep = require('wiredep');
 
 module.exports = yeoman.generators.Base.extend({
 
@@ -110,15 +111,15 @@ module.exports = yeoman.generators.Base.extend({
       // Bootstrap
       if(this.includeBootstrap) {
         bowerJson.dependencies['bootstrap'] = '~3.3.5';
-        bowerJson.overrides = {
+       /* bowerJson.overrides = {
           'bootstrap' : {
             'main' : [
-            'app/dev/style/less/bootstrap.less',
-            'app/dev/js/vendor/bootstrap.js',
-            'app/dev/style/fonts/*'
+            'dev/style/less/bootstrap.less',
+            'dev/js/vendor/bootstrap.js',
+            'dev/style/fonts/*'
             ]
           }
-        };
+        };*/
       }
       else if (this.includeJQuery){
         bowerJson.dependencies['jquery'] = '~2.1.4';
@@ -139,12 +140,12 @@ module.exports = yeoman.generators.Base.extend({
 
     scripts : function(){
       this.fs.copy(
-        this.templatePath('dev/js/main.js'),
-        this.destinationPath('dev/js/main.js')
+        this.templatePath('js/main.js'),
+        this.destinationPath('app/js/main.js')
         );
       this.fs.copy(
-        this.templatePath('dev/js/plugins.js'),
-        this.destinationPath('dev/js/plugins.js')
+        this.templatePath('js/plugins.js'),
+        this.destinationPath('app/js/plugins.js')
         );
     },
 
@@ -157,42 +158,42 @@ module.exports = yeoman.generators.Base.extend({
 
     icons : function(){
       this.fs.copy(
-        this.templatePath('dev/favicon.ico'),
-        this.destinationPath('app/dev/favicon.ico')
+        this.templatePath('favicon.ico'),
+        this.destinationPath('app/favicon.ico')
         );
       this.fs.copy(
-        this.templatePath('dev/apple-touch-icon.png'),
-        this.destinationPath('app/dev/apple-touch-icon.png')
+        this.templatePath('apple-touch-icon.png'),
+        this.destinationPath('app/apple-touch-icon.png')
         );
       this.fs.copy(
-        this.templatePath('dev/tile.png'),
-        this.destinationPath('app/dev/tile.png')
+        this.templatePath('tile.png'),
+        this.destinationPath('app/tile.png')
         );
       this.fs.copy(
-        this.templatePath('dev/tile-wide.png'),
-        this.destinationPath('app/dev/tile-wide.png')
+        this.templatePath('tile-wide.png'),
+        this.destinationPath('app/tile-wide.png')
         );
     },
 
     html : function (){
       var bsPath;
       this.fs.copy(
-        this.templatePath('dev/index.html'),
-        this.destinationPath('dev/index.html')
+        this.templatePath('index.html'),
+        this.destinationPath('app/index.html')
         );
     },
 
     robots : function () {
       this.fs.copy(
-        this.templatePath('dev/robots.txt'),
-        this.destinationPath('dev/robots.txt')
+        this.templatePath('robots.txt'),
+        this.destinationPath('app/robots.txt')
         );
     },
 
     humans : function () {
       this.fs.copy(
-        this.templatePath('dev/humans.txt'),
-        this.destinationPath('dev/humans.txt')
+        this.templatePath('humans.txt'),
+        this.destinationPath('app/humans.txt')
         );
     },
 
@@ -209,7 +210,7 @@ module.exports = yeoman.generators.Base.extend({
   },
 
   misc : function () {
-    mkdirp('app/dev/img');
+    mkdirp('app/img');
     mkdirp('app/style/fonts');
   },
 

@@ -72,7 +72,7 @@ module.exports = yeoman.generators.Base.extend({
           {
             name : 'bootstrap',
             value : 'includeBootstrap',
-            checked : false
+            checked : true
           },
           {
             name : 'modernizr',
@@ -104,7 +104,7 @@ module.exports = yeoman.generators.Base.extend({
       this.username = answers.username;
 
       this.includeBootstrap = hasFeature('includeBootstrap');
-      this.includeJQuery = hasFeature('includeJQuery');
+      this.includeJQuery = answers.includeJQuery;
       this.includeModernizr = hasFeature('includeModernizr');
       this.includeLess = hasFeature('includeLess');
 
@@ -147,15 +147,15 @@ module.exports = yeoman.generators.Base.extend({
       // Bootstrap
       if(this.includeBootstrap) {
         bowerJson.dependencies['bootstrap'] = '~3.3.5';
-       /* bowerJson.overrides = {
+        bowerJson.overrides = {
           'bootstrap' : {
             'main' : [
-            'dev/style/less/bootstrap.less',
-            'dev/js/vendor/bootstrap.js',
-            'dev/style/fonts/*'
+            'less/bootstrap.less',
+            'dist/js/bootstrap.js',
+            'dist/fonts/*'
             ]
           }
-        };*/
+        };
       }
       else if (this.includeJQuery){
         bowerJson.dependencies['jquery'] = '~2.1.4';
@@ -176,12 +176,12 @@ module.exports = yeoman.generators.Base.extend({
 
     scripts : function(){
       this.fs.copy(
-        this.templatePath('js/main.js'),
-        this.destinationPath('app/js/main.js')
+        this.templatePath('scripts/javascript/main.js'),
+        this.destinationPath('app/scripts/javascript/main.js')
         );
       this.fs.copy(
-        this.templatePath('js/plugins.js'),
-        this.destinationPath('app/js/plugins.js')
+        this.templatePath('scripts/javascript/plugins.js'),
+        this.destinationPath('app/scripts/javascript/plugins.js')
         );
     },
 
@@ -233,6 +233,20 @@ module.exports = yeoman.generators.Base.extend({
         );
     },
 
+    broswerconfig : function () {
+      this.fs.copy(
+        this.templatePath('browserconfig.xml'),
+        this.destinationPath('app/browserconfig.xml')
+        );
+    },
+
+    crossdomain : function () {
+      this.fs.copy(
+        this.templatePath('crossdomain.xml'),
+        this.destinationPath('app/crossdomain.xml')
+        );
+    },
+
     projectfiles: function () {
       this.fs.copy(
         this.templatePath('editorconfig'),
@@ -241,6 +255,13 @@ module.exports = yeoman.generators.Base.extend({
       this.fs.copy(
         this.templatePath('jshintrc'),
         this.destinationPath('.jshintrc')
+        );
+    },
+
+    documentation : function () {
+      this.fs.copy(
+        this.templatePath('docs/**.md'),
+        this.destinationPath('docs/')
         );
     },
 

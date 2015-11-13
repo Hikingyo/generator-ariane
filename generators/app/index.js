@@ -8,6 +8,35 @@ var wiredep = require('wiredep');
 
 module.exports = yeoman.generators.Base.extend({
 
+  constructor: function (){
+
+    var testLocal = require.resolve('generator-mocha/generators/app/index.js');
+
+    yeoman.Base.apply(this, arguments);
+
+    this.option('skip-welcome-message', {
+      desc : 'Skip the welcome message',
+      type : Boolean
+    });
+
+    this.option('skip-install-message', {
+      desc: 'Skip the message after installation dependencies',
+      type : Boolean
+    });
+
+    this.composeWith('mocha' + ':app', 
+      {
+        options: {
+          'skip-install' : this.options['skip-install']
+        }
+      }, 
+      { 
+        local : testLocal
+      }
+    );
+
+  },
+
   initializing: function(){
     this.pkg = require('../../package.json');
   },
@@ -16,46 +45,52 @@ module.exports = yeoman.generators.Base.extend({
     var done = this.async();
 
     // Have Yeoman greet the user.
-    this.log(yosay(
-      'Welcome to the amazing ' + chalk.red('Cionfire') + ' generator!'
-      ));
+    if(!this.options['skip-install-message']) {
+      this.log(yosay(
+        'Welcome to the amazing ' + chalk.red('Cionfire') + ' generator!'
+        ));
+    }
 
     var prompts = [
-    {
-      type : 'input',
-      name: 'username',
-      message: 'What\'s your username',
-      default: 'JohnDoe'
-    },
-    {
-      type : 'checkbox',
-      name : 'features',
-      message : 'What more would you like?',
-      choices : [{
-        name : 'Less',
-        value : 'includeLess',
-        checked : true
-      },
       {
-        name : 'bootstrap',
-        value : 'includeBootstrap',
-        checked : false
+        type : 'input',
+        name: 'username',
+        message: 'What\'s your username',
+        default: 'JohnDoe'
       },
+
       {
-        name : 'modernizr',
-        value : 'includeModernizr',
-        checked : true
-      }]
-    },
-    {
-      type : 'confirm',
-      name : 'includeJQuery',
-      message : 'Would you like to include jQuery ?',
-      default : true,
-      when : function (answers) {
-        return answers.features.indexOf('includeBootstrap') === -1;
+        type : 'checkbox',
+        name : 'features',
+        message : 'What more would you like?',
+        choices : [
+          {
+            name : 'Less',
+            value : 'includeLess',
+            checked : true
+          },
+          {
+            name : 'bootstrap',
+            value : 'includeBootstrap',
+            checked : false
+          },
+          {
+            name : 'modernizr',
+            value : 'includeModernizr',
+            checked : true
+          }
+        ]
+      },
+
+      {
+        type : 'confirm',
+        name : 'includeJQuery',
+        message : 'Would you like to include jQuery ?',
+        default : true,
+        when : function (answers) {
+          return answers.features.indexOf('includeBootstrap') === -1;
+        }
       }
-    }
     ];
 
     this.prompt(prompts, function (answers) {
@@ -78,8 +113,8 @@ module.exports = yeoman.generators.Base.extend({
   },
 
   writing: {
-   gulpfile : function () {
 
+   gulpfile : function () {
       this.fs.copyTpl(
         this.templatePath('_gulpfile.js'),
         this.destinationPath('gulpfile.js'),
@@ -87,10 +122,10 @@ module.exports = yeoman.generators.Base.extend({
           pkg : this.pkg,
           includeLess : this.includeLess
         }
-        )
+      )
     },
 
-     packageJSON : function () {
+    packageJSON : function () {
       this.fs.copyTpl(
         this.templatePath('_package.json'),
         this.destinationPath('package.json'),
@@ -102,6 +137,7 @@ module.exports = yeoman.generators.Base.extend({
     },
 
     bower : function(){
+
       var bowerJson = {
         name : _s.slugify(this.appname),
         private : true,
@@ -135,7 +171,7 @@ module.exports = yeoman.generators.Base.extend({
       this.fs.copy(
         this.templatePath('bowerrc'),
         this.destinationPath('.bowerrc')
-        );
+      );
     },
 
     scripts : function(){
@@ -206,15 +242,43 @@ module.exports = yeoman.generators.Base.extend({
         this.templatePath('jshintrc'),
         this.destinationPath('.jshintrc')
         );
+    },
+
+    misc : function () {
+      mkdirp('app/img');
+      mkdirp('app/style/fonts');
     }
   },
 
-  misc : function () {
-    mkdirp('app/img');
-    mkdirp('app/style/fonts');
+  install: function () {
+    this.installDependencies({
+      skipInstall: this.options['skip-install'],
+      skipMessage: this.options['skip-install-message']
+    });
   },
 
-  install: function () {
-    this.installDependencies();
+  end: function() {
+    var bowerJson  = this.fs.readJSON(this.destinationPath('bower.json'));
+    var hotToInstall = 
+    '\nAfter running '+
+    chalk.yellow.bold('npm install & bower install') +
+    ', inject your' +
+    '\nfront end dependencies by running '+
+    chalk.yellow.bold('gulp wiredep') + // TODO mettre le nom du task runner en paramètre
+    '.';
+
+    if(this.options['skip-install']){
+      this.log(hotToInstall);
+      return;
+    }
+
+    // wire Bower packages into templates
+    wiredep({
+      bowerJson : bowerJson,
+      src : 'app/index.html',
+      exclude : ['bootstrap.js'],
+      ignorePath : /^(\.\.\/)*\.\./
+    });
   }
+
 });

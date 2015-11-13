@@ -1,4 +1,4 @@
-# generator-cionfire [![Build Status](https://secure.travis-ci.org/hikingyo/generator-cionfire.png?branch=master)](https://travis-ci.org/hikingyo/generator-cionfire)
+# generator-cionfire [![Build Status](https://secure.travis-ci.org/Hikingyo/generator-cionfire.png?branch=master)](https://travis-ci.org/hikingyo/generator-cionfire)
 
 > [Cionfire](http://yeoman.io) generator
 

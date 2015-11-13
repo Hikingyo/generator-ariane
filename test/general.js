@@ -9,7 +9,7 @@ describe('general', function () {
   before(function (done) {
     helpers.run(path.join(__dirname, '../generators/app'))
       .withOptions({ skipInstall: true })
-      .withPrompts({ username: 'Hikingyo' })
+      .withPrompts({ username: '' })
       .withPrompts({ features : []})
       .on('end', done);
   });
@@ -26,7 +26,13 @@ describe('general', function () {
       'package.json',
       'gulpfile.js',
       '.editorconfig',
+      '.gitignore',
       '.jshintrc'
     ]);
   });
+
+  it('default username', function () {
+    assert.fileContent('package.json', 'JohnDoe');
+  });
+
 });

@@ -6,18 +6,19 @@
   "main": "app/index.js",
   "repository": {
     "type" : "git",
-    "url" :"https://github.com/Hikingyo/generator-cionfire"},
+    "url" :"https://github.com/Hikingyo/generator-cionfire"
+  },
+  "author" : {
+    "name": "Hikingyo",
+    "email": "hikingyo@github.com",
+    "url": "https://github.com/Hikingyo"
+  },
   "contributors": [
-    {
-      "name": "Hikingyo",
-      "email": "hikingyo@github.com",
-      "url": "https://github.com/Hikingyo"
-    },
     {
       "name": "mlcdf",
       "email": "mlcdf@github.com",
       "url": "https://github.com/mlcdf"
-    },
+    }
   ],
   "scripts": {
     "test": "mocha"

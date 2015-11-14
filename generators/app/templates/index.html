@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild --><% if (includeModernizr) { %>
     <!-- build:js scripts/vendor/modernizr.js -->
-    <script src="scripts/vendor/modernizr/modernizr.js"></script>
+    <script src="/vendor/modernizr/modernizr.js"></script>
     <!-- endbuild -->
     <% } %>
   </head>
@@ -85,9 +85,7 @@
 
     <% if (includeBootstrap) { %>
     <!-- build:js(.) scripts/plugins.js -->
-<% bsPlugins.forEach(function (plugin) { -%>
-    <script src="<%= bsPath + plugin %>.js"></script>
-<% }) -%>
+
     <!-- endbuild -->
     <% } %>
 

@@ -1,4 +1,5 @@
 'use strict';
+
 var yeoman = require('yeoman-generator');
 var chalk = require('chalk');
 var yosay = require('yosay');
@@ -10,7 +11,7 @@ module.exports = yeoman.generators.Base.extend({
 
   constructor: function (){
 
-    var testLocal = require.resolve('generator-mocha/generators/app/index.js');
+    var testLocal;
 
     yeoman.Base.apply(this, arguments);
 
@@ -24,7 +25,26 @@ module.exports = yeoman.generators.Base.extend({
       type : Boolean
     });
 
-    this.composeWith('mocha' + ':app', 
+    this.option('babel', {
+      desc : 'Use Babel',
+      type : Boolean,
+      defaults : true
+    });
+
+    this.option('test-framework', {
+      desc : 'Test framework to be invoked',
+      type : String,
+      defaults : 'mocha'
+    });
+
+    if(this.options['test-framework'] === 'mocha') {
+      testLocal = require.resolve('generator-mocha/generators/app/index.js');
+    }
+    else {
+      testLocal = require.resolve('generator-jasmin/generators/app/index.js');
+    }
+
+    this.composeWith(this.options['test-framework'] + ':app', 
       {
         options: {
           'skip-install' : this.options['skip-install']
@@ -140,6 +160,7 @@ module.exports = yeoman.generators.Base.extend({
       this.includeJQuery = answers.includeJQuery;
       this.includeModernizr = hasFeature('includeModernizr');
       this.includeLess = hasFeature('includeLess');
+      this.includeSass = hasFeature('includeSass');
 
       done();
     }.bind(this));
@@ -168,7 +189,9 @@ module.exports = yeoman.generators.Base.extend({
           includeSass : this.includeSass,
           username : this.username,
           projectname : this.projectname,
-          projectdescription : this.projectdescription
+          projectdescription : this.projectdescription,
+          testFramework : this.options['test-framework'],
+          useBabel : this.options['babel']
         }
       );
     },
@@ -205,7 +228,7 @@ module.exports = yeoman.generators.Base.extend({
               ]
             }
           };
-        },
+        }
         else{ // Only css
           bowerJson.overrides = {
             'bootstrap' : {
@@ -215,7 +238,7 @@ module.exports = yeoman.generators.Base.extend({
                 'dist/css/bootstrap.css'
               ]
             }
-          }
+          };
         }
       }
       else if (this.includeJQuery){
@@ -272,16 +295,15 @@ module.exports = yeoman.generators.Base.extend({
         );
     },
 
-    html : function (){
-      var bsPath;
+    html: function () {
+      var bsPath='';
 
-      // path prefix for Bootstrp JS file
-      if(this.includeBootstrap){
-        if(this.includeSass){
-          bsPath = 'app/vendors/bootstrap-sass/assets/javascripts/bootstrap/';
-        }
-        else{
-          bsPath = 'app/vendors/bootstrap/js/'
+      // path prefix for Bootstrap JS files
+      if (this.includeBootstrap) {
+        if (this.includeSass) {
+          bsPath = '/vendor/bootstrap-sass/assets/javascripts/bootstrap/';
+        } else {
+          bsPath = '/vendor/bootstrap/js/';
         }
       }
 
@@ -289,11 +311,12 @@ module.exports = yeoman.generators.Base.extend({
         this.templatePath('index.html'),
         this.destinationPath('app/index.html'),
         {
-          projectname : this.projectname,
-          includeModernizr : this.includeModernizr,
-          bsPath : bsPath,
-          bsPlugons : 
-          [
+          projectname: this.projectname,
+          includeSass: this.includeSass,
+          includeBootstrap: this.includeBootstrap,
+          includeModernizr: this.includeModernizr,
+          bsPath: bsPath,
+          bsPlugins: [
             'affix',
             'alert',
             'dropdown',

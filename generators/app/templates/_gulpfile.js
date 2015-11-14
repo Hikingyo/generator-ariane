@@ -19,7 +19,7 @@ var gulp = require('gulp'),
 
 gulp.task('default',['del',<% if (includeLess){ %> 'less',<% } %> 'img'], function(){
 	var assets = useref.assets();
-    return gulp.src('dev/*.*')
+    return gulp.src('app/*.*')
         .pipe(assets)
         .pipe(gulpif('*.js', uglify()))
         .pipe(assets.restore())
@@ -30,20 +30,20 @@ gulp.task('default',['del',<% if (includeLess){ %> 'less',<% } %> 'img'], functi
 // Gestion des fichier less
 <% if (includeLess) { %>
 gulp.task('less', function(){
-	return gulp.src('dev/style/less/*.less')
+	return gulp.src('app/style/**/*.less')
 	.pipe(plumber())
 	.pipe(less({
 		relativeUrls: true,
 		plugins : [autoprefix, cleancss],
-		paths : [ path.join( 'dev/style/', 'dev/style/less') ]
+		paths : [ path.join( 'app/style/', 'app/style/less') ]
 	}))
-	.pipe(gulp.dest('dev/style/css'))
+	.pipe(gulp.dest('.tmp/style'))
 	.pipe(livereload());
 });
 <% } %>
 // Gestion des images
 gulp.task('img', function(){
-	return gulp.src('dev/img/**/*')
+	return gulp.src('app/img/**/*')
 	.pipe(imagemin({
 		progressive : true,
 		svgoPlugins: [{removeViewBox: false}],
@@ -54,18 +54,18 @@ gulp.task('img', function(){
 
 // HTML
 gulp.task('html', function(){
-	return gulp.src('dev/**/*.html')
+	return gulp.src('app/**/*.html')
 	.pipe(livereload());
 })
 
 
-// Dev watch
+// app watch
 gulp.task('watch', function(){
 	livereload.listen();
 	<% if (includeLess) { %>
-	gulp.watch('dev/style/**/*', ['less']);
+	gulp.watch('app/style/**/*', ['less']);
 	<% } %>
-	gulp.watch('dev/**/*.html', ['html']);
+	gulp.watch('app/**/*.html', ['html']);
 });
 
 // Reconstruction du dossier dist

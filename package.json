@@ -20,7 +20,7 @@
       "url": "https://github.com/mlcdf"
     }],
   "scripts": {
-    "test": "mocha"
+    "test": "mocha --reporter spec"
   },
   "files": [
     "generators"

@@ -1,15 +1,24 @@
 {
   "name": "generator-cionfire",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Yeoman generator",
   "license": "MIT",
   "main": "app/index.js",
-  "repository": "hikingyo/generator-cionfire",
-  "author": {
-    "name": "",
-    "email": "",
-    "url": "https://github.com/Hikingyo"
-  },
+  "repository": {
+    "type" : "git",
+    "url" :"https://github.com/Hikingyo/generator-cionfire"},
+  "contributors": [
+    {
+      "name": "Hikingyo",
+      "email": "hikingyo@github.com",
+      "url": "https://github.com/Hikingyo"
+    },
+    {
+      "name": "mlcdf",
+      "email": "mlcdf@github.com",
+      "url": "https://github.com/mlcdf"
+    },
+  ],
   "scripts": {
     "test": "mocha"
   },
@@ -17,7 +26,15 @@
     "generators"
   ],
   "keywords": [
-    "yeoman-generator"
+    "yeoman-generator",
+    "web",
+    "less",
+    "scass",
+    "bootstrap",
+    "gulp",
+    "grunt",
+    "html5bp",
+
   ],
   "dependencies": {
     "chalk": "^1.0.0",
@@ -30,5 +47,5 @@
   },
   "devDependencies": {
     "mocha": "*"
-  }
+  },
 }

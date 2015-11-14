@@ -79,11 +79,6 @@ module.exports = yeoman.generators.Base.extend({
         message : 'What more would you like?',
         choices : [
           {
-            name : 'Less',
-            value : 'includeLess',
-            checked : true
-          },
-          {
             name : 'bootstrap',
             value : 'includeBootstrap',
             checked : true
@@ -93,6 +88,28 @@ module.exports = yeoman.generators.Base.extend({
             value : 'includeModernizr',
             checked : true
           }
+        ]
+      },
+
+      {
+        type : 'list',
+        name : 'stylessheetlanguage',
+        message : 'Wich stylesheet language would you use ?',
+        default : 1, // Less
+        choices : 
+        [
+          {
+            name : 'css',
+            value : 'includeCss',
+          },
+          {
+            name : 'Less',
+            value : 'includeLess'
+          },
+          {
+            name : 'Scass',
+            value : 'includeSass',
+          },
         ]
       },
 
@@ -136,7 +153,8 @@ module.exports = yeoman.generators.Base.extend({
         this.destinationPath('gulpfile.js'),
         {
           pkg : this.pkg,
-          includeLess : this.includeLess
+          includeLess : this.includeLess,
+          includeSass : this.includeSass
         }
       );
     },
@@ -146,7 +164,8 @@ module.exports = yeoman.generators.Base.extend({
         this.templatePath('_package.json'),
         this.destinationPath('package.json'),
         {
-          includeLess: this.includeLess,
+          includeLess : this.includeLess,
+          includeSass : this.includeSass,
           username : this.username,
           projectname : this.projectname,
           projectdescription : this.projectdescription
@@ -157,7 +176,7 @@ module.exports = yeoman.generators.Base.extend({
     bower : function(){
 
       var bowerJson = {
-        name : _s.slugify(this.appname),
+        name : _s.slugify(this.projectname),
         private : true,
         dependencies : {}
       };
@@ -165,15 +184,39 @@ module.exports = yeoman.generators.Base.extend({
       // Bootstrap
       if(this.includeBootstrap) {
         bowerJson.dependencies['bootstrap'] = '~3.3.5';
-        bowerJson.overrides = {
-          'bootstrap' : {
-            'main' : [
-            'less/bootstrap.less',
-            'dist/js/bootstrap.js',
-            'dist/fonts/*'
-            ]
+        if(this.includeLess) {
+          bowerJson.overrides = {
+            'bootstrap' : {
+              'main' : [
+              'less/bootstrap.less',
+              'dist/js/bootstrap.js',
+              'dist/fonts/*'
+              ]
+            }
+          };
+        }
+        else if(this.includeSass) {
+          bowerJson.overrides = {
+            'bootstrap-sass' : {
+              'main' : [
+                'assets/stylesheets/_bootstrap.scss',
+                'assets/fonts/bootstrap/*',
+                'assets/javascript/bootstrap.js'
+              ]
+            }
+          };
+        },
+        else{ // Only css
+          bowerJson.overrides = {
+            'bootstrap' : {
+              'main' : [
+                'dist/js/boostrap.js',
+                'dist/fonts/*',
+                'dist/css/bootstrap.css'
+              ]
+            }
           }
-        };
+        }
       }
       else if (this.includeJQuery){
         bowerJson.dependencies['jquery'] = '~2.1.4';
@@ -231,12 +274,39 @@ module.exports = yeoman.generators.Base.extend({
 
     html : function (){
       var bsPath;
-      this.fs.copy(
+
+      // path prefix for Bootstrp JS file
+      if(this.includeBootstrap){
+        if(this.includeSass){
+          bsPath = 'app/vendors/bootstrap-sass/assets/javascripts/bootstrap/';
+        }
+        else{
+          bsPath = 'app/vendors/bootstrap/js/'
+        }
+      }
+
+      this.fs.copyTpl(
         this.templatePath('index.html'),
         this.destinationPath('app/index.html'),
         {
           projectname : this.projectname,
-          includeModernizr : this.includeModernizr
+          includeModernizr : this.includeModernizr,
+          bsPath : bsPath,
+          bsPlugons : 
+          [
+            'affix',
+            'alert',
+            'dropdown',
+            'tooltip',
+            'modal',
+            'transition',
+            'button',
+            'popover',
+            'carousel',
+            'scrollspy',
+            'collapse',
+            'tab'
+          ]
         }
       );
     },
@@ -302,7 +372,7 @@ module.exports = yeoman.generators.Base.extend({
 
   end: function() {
     var bowerJson  = this.fs.readJSON(this.destinationPath('bower.json'));
-    var hotToInstall = 
+    var howToInstall = 
     '\nAfter running '+
     chalk.yellow.bold('npm install & bower install') +
     ', inject your' +
@@ -311,7 +381,7 @@ module.exports = yeoman.generators.Base.extend({
     '.';
 
     if(this.options['skip-install']){
-      this.log(hotToInstall);
+      this.log(howToInstall);
       return;
     }
 
@@ -322,6 +392,14 @@ module.exports = yeoman.generators.Base.extend({
       exclude : ['bootstrap.js'],
       ignorePath : /^(\.\.\/)*\.\./
     });
+
+    if(this.includeSass){
+      wiredep({
+        bowerJson : bowerJson,
+        src : 'app/style/*.scss',
+        ignorePath : /^(\.\.\/)*\.\./
+      });
+    }
   }
 
 });

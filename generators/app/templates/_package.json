@@ -3,11 +3,9 @@
   "version": "0.0.1",
   "description": "<%= projectdescription %>",
   "main": "index.html",
-  "directories": {
-    "doc": "doc"
-  },
+  "man" : ["./docs/usage.md"],
   "scripts": {
-    "test": "mocha",
+    //"test": "mocha",
     "dev" : "gulp watch"
   },
   "author": "<%= username %>",

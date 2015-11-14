@@ -4,6 +4,7 @@ var path = require('path');
 var assert = require('yeoman-generator').assert;
 var helpers = require('yeoman-generator').test;
 var os = require('os');
+var fs = require('fs-extra');
 
 describe('general', function () {
 
@@ -14,6 +15,10 @@ describe('general', function () {
   describe('default config', function () {
     before(function (done) {
       helpers.run(path.join(__dirname, '../generators/app'))
+      .inTmpDir(function (dir) {
+          // `dir` is the path to the new temporary directory
+          fs.copySync(path.join(__dirname, '../tmp'), dir)
+        })
       .withOptions({ skipInstall: true })
       .withPrompts(
         {
@@ -42,6 +47,10 @@ describe('general', function () {
   describe('copying files', function () {
     before(function (done) {
       helpers.run(path.join(__dirname, '../generators/app'))
+      .inTmpDir(function (dir) {
+          // `dir` is the path to the new temporary directory
+          fs.copySync(path.join(__dirname, '../tmp'), dir)
+        })
       .withOptions({ skipInstall: true })
       .withPrompts(
         {

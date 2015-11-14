@@ -7,6 +7,7 @@ var _s = require('underscore.string');
 var mkdirp = require('mkdirp');
 var wiredep = require('wiredep');
 
+
 module.exports = yeoman.generators.Base.extend({
 
   constructor: function (){
@@ -119,16 +120,16 @@ module.exports = yeoman.generators.Base.extend({
         choices : 
         [
           {
-            name : 'css',
-            value : 'includeCss',
+            name : 'Css',
+            value : 'css',
           },
           {
             name : 'Less',
-            value : 'includeLess'
+            value : 'less'
           },
           {
-            name : 'Scass',
-            value : 'includeSass',
+            name : 'Sass',
+            value : 'sass',
           },
         ]
       },
@@ -159,8 +160,8 @@ module.exports = yeoman.generators.Base.extend({
       this.includeBootstrap = hasFeature('includeBootstrap');
       this.includeJQuery = answers.includeJQuery;
       this.includeModernizr = hasFeature('includeModernizr');
-      this.includeLess = hasFeature('includeLess');
-      this.includeSass = hasFeature('includeSass');
+      this.includeLess = answers.stylessheetlanguage == 'less';
+      this.includeSass = answers.stylessheetlanguage == 'sass';
 
       done();
     }.bind(this));

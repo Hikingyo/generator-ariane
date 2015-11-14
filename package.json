@@ -5,10 +5,10 @@
   "license": "MIT",
   "main": "app/index.js",
   "repository": {
-    "type" : "git",
-    "url" :"https://github.com/Hikingyo/generator-cionfire"
+    "type": "git",
+    "url": "https://github.com/Hikingyo/generator-cionfire"
   },
-  "author" : {
+  "author": {
     "name": "Hikingyo",
     "email": "hikingyo@github.com",
     "url": "https://github.com/Hikingyo"
@@ -18,7 +18,8 @@
       "name": "mlcdf",
       "email": "mlcdf@github.com",
       "url": "https://github.com/mlcdf"
-    }],
+    }
+  ],
   "scripts": {
     "test": "mocha --reporter spec"
   },
@@ -34,18 +35,21 @@
     "gulp",
     "grunt",
     "html5bp"
-
   ],
   "dependencies": {
     "chalk": "^1.0.0",
+    "generator-jasmine": "^0.2.1",
     "generator-mocha": "^0.2.0",
     "mkdirp": "^0.5.1",
     "underscore.string": "^3.2.2",
     "wiredep": "^2.2.2",
-    "yeoman-generator": "^0.19.0",
-    "yosay": "^1.0.2"
+    "yeoman-generator": "^0.21.1",
+    "yosay": "^1.1.0"
   },
   "devDependencies": {
+    "fs-extra": "^0.26.2",
+    "grunt-cli": "^0.1.13",
+    "gulp-cli": "^0.3.0",
     "mocha": "*"
   }
 }

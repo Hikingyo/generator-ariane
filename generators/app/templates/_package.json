@@ -1,7 +1,7 @@
 {
-  "name": "tp_integration",
-  "version": "1.0.0",
-  "description": "tp integration doc_num",
+  "name": "<%= projectname %>",
+  "version": "0.0.1",
+  "description": "<%= projectdescription %>",
   "main": "index.html",
   "directories": {
     "doc": "doc"

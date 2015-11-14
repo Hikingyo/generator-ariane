@@ -60,6 +60,20 @@ module.exports = yeoman.generators.Base.extend({
       },
 
       {
+        type : 'input',
+        name: 'projectname',
+        message: 'What\'s your project name',
+        default: 'webapp'
+      },
+
+      {
+        type : 'input',
+        name : 'projectdescription',
+        message : 'Describe your project',
+        default : 'A sample project.'
+      },
+
+      {
         type : 'checkbox',
         name : 'features',
         message : 'What more would you like?',
@@ -102,6 +116,8 @@ module.exports = yeoman.generators.Base.extend({
       }
 
       this.username = answers.username;
+      this.projectname = answers.projectname;
+      this.projectdescription = answers.projectdescription;
 
       this.includeBootstrap = hasFeature('includeBootstrap');
       this.includeJQuery = answers.includeJQuery;
@@ -122,7 +138,7 @@ module.exports = yeoman.generators.Base.extend({
           pkg : this.pkg,
           includeLess : this.includeLess
         }
-      )
+      );
     },
 
     packageJSON : function () {
@@ -131,9 +147,11 @@ module.exports = yeoman.generators.Base.extend({
         this.destinationPath('package.json'),
         {
           includeLess: this.includeLess,
-          username : this.username
+          username : this.username,
+          projectname : this.projectname,
+          projectdescription : this.projectdescription
         }
-        )
+      );
     },
 
     bower : function(){
@@ -215,8 +233,12 @@ module.exports = yeoman.generators.Base.extend({
       var bsPath;
       this.fs.copy(
         this.templatePath('index.html'),
-        this.destinationPath('app/index.html')
-        );
+        this.destinationPath('app/index.html'),
+        {
+          projectname : this.projectname,
+          includeModernizr : this.includeModernizr
+        }
+      );
     },
 
     robots : function () {

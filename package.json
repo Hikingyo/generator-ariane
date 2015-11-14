@@ -18,8 +18,7 @@
       "name": "mlcdf",
       "email": "mlcdf@github.com",
       "url": "https://github.com/mlcdf"
-    }
-  ],
+    }],
   "scripts": {
     "test": "mocha"
   },
@@ -34,7 +33,7 @@
     "bootstrap",
     "gulp",
     "grunt",
-    "html5bp",
+    "html5bp"
 
   ],
   "dependencies": {
@@ -48,5 +47,5 @@
   },
   "devDependencies": {
     "mocha": "*"
-  },
+  }
 }

@@ -3,9 +3,8 @@
 var path = require('path');
 var assert = require('yeoman-generator').assert;
 var helpers = require('yeoman-generator').test;
-var os = require('os');
-const testPath = '../cionfire_test';
-const appPath = '../generators/app';
+var testPath = '../cionfire_test';
+var appPath = '../generators/app';
 
 describe('Bootstrap  feature', function () {
     describe('on', function () {

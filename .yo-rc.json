@@ -1,5 +1,6 @@
 {
   "generator-generator": {
     "structure": "nested"
-  }
+  },
+  "generator-mocha": {}
 }

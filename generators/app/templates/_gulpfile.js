@@ -1,5 +1,6 @@
 /**
- * gulpfile.js generated automaticly by generator-cionfire
+ * gulpfile.js generated automaticly using <%= pkg.name %> <%= pkg.version %>
+ * on <%= (new Date).toISOString().split('T')[0] %>
  */
 var gulp = require('gulp'),
 	useref = require('gulp-useref')<% if (includeLess){ %>,
@@ -15,7 +16,8 @@ var gulp = require('gulp'),
 	uglify = require('gulp-uglify'),
 	imagemin = require('gulp-imagemin'),
 	plumber = require('gulp-plumber'),
-	pngquant = require('imagemin-pngquant');
+	pngquant = require('imagemin-pngquant'),
+	wiredep = require ('wiredep').stream;
 
 gulp.task('default',['del',<% if (includeLess){ %> 'less',<% } %> 'img'], function(){
 	var assets = useref.assets();
@@ -27,7 +29,7 @@ gulp.task('default',['del',<% if (includeLess){ %> 'less',<% } %> 'img'], functi
         .pipe(gulp.dest('dist'));
 });
 
-// Gestion des fichier less
+// Less task
 <% if (includeLess) { %>
 gulp.task('less', function(){
 	return gulp.src('app/style/**/*.less')
@@ -41,7 +43,7 @@ gulp.task('less', function(){
 	.pipe(livereload());
 });
 <% } %>
-// Gestion des images
+// Images
 gulp.task('img', function(){
 	return gulp.src('app/img/**/*')
 	.pipe(imagemin({
@@ -56,7 +58,7 @@ gulp.task('img', function(){
 gulp.task('html', function(){
 	return gulp.src('app/**/*.html')
 	.pipe(livereload());
-})
+});
 
 
 // app watch
@@ -68,7 +70,43 @@ gulp.task('watch', function(){
 	gulp.watch('app/**/*.html', ['html']);
 });
 
-// Reconstruction du dossier dist
+// Cleaning dist before main task
 gulp.task('del', function(){
 	return del('dist');
+});
+
+// Automatically inject Bower components into HTML file
+gulp.task('wiredep', function () {
+	<% if(includeSass){ %>
+	gulp.src('app/style/*.scss')
+	.pipe(wiredep({
+		ignorePath: /^(\.\.\/)+/
+	}))
+	.pipe(gulp.dest('app/style'));
+	<% } %>
+	<% if(includeLess){ %>
+	gulp.src('app/style/*.less')
+	.pipe(wiredep({
+		ignorePath: /^(\.\.\/)+/
+	}))
+	.pipe(gulp.dest('app/style'));
+	<% } %>
+	<% if(includeCss){ %>
+	gulp.src('app/style/*.css')
+	.pipe(wiredep({
+		ignorePath: /^(\.\.\/)+/
+	}))
+	.pipe(gulp.dest('app/style'));
+	<% } %>
+	gulp.src('app/*.html')
+	.pipe(wiredep({
+		<% if(includeBootstrap) {
+			if(includeSass) { %>
+		exclude: ['bootstrap-scss'],
+		<%} else { %>
+		exclude : ['boostrap.js'],
+		<% }} %>
+		ignorePath: /^(\.\.\/)*\.\./
+	}))
+	.pipe(gulp.dest('app'));
 });

@@ -1,1 +1,4 @@
 node_modules/
+.idea/
+cionfire.sublime-project
+cionfire.sublime-workspace

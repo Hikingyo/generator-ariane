@@ -1,7 +1,7 @@
 'use strict';
 
 var path = require('path');
-var assert = require('yeoman-generator').assert;
+var assert = require('yeoman-assert');
 var helpers = require('yeoman-generator').test;
 var testPath = '../cionfire_test';
 var appPath = '../generators/app';
@@ -80,7 +80,7 @@ describe('Bootstrap  feature', function () {
             assert.fileContent('bower.json', '"bootstrap"');
         });
 
-        it('should output the correct <script> paths', function(){
+        it("should output the correct <script> paths", function(){
             assert.fileContent('app/index.html', /src="(.*?)\/bootstrap\/js\//);
         });
 
@@ -161,4 +161,4 @@ describe('Bootstrap  feature', function () {
             assert.fileContent('app/style/main.less', '@import "bower_components/bootstrap/less/bootstrap.less"');
         })
     });
-})
+});

@@ -3,12 +3,12 @@
  * on <%= (new Date).toISOString().split('T')[0] %>
  */
 var gulp = require('gulp'),
-	useref = require('gulp-useref')<% if (includeLess){ %>,
+	useref = require('gulp-useref'),<% if (includeLess){ %>
 	less = require('gulp-less'),
 	LessPluginCleanCSS = require('less-plugin-clean-css'),
 	cleancss = new LessPluginCleanCSS({ advanced : true}),
 	LessPluginAutoPrefix = require('less-plugin-autoprefix'),
-	autoprefix = new LessPluginAutoPrefix({ browsers : ['> 5%']})<% } %>,
+	autoprefix = new LessPluginAutoPrefix({ browsers : ['> 5%']}),<% } if (includeSass){ %><% } %>
 	path = require('path'),
 	livereload = require('gulp-livereload'),
 	del = require('del'),
@@ -19,7 +19,7 @@ var gulp = require('gulp'),
 	pngquant = require('imagemin-pngquant'),
 	wiredep = require ('wiredep').stream;
 
-gulp.task('default',['del',<% if (includeLess){ %> 'less',<% } %> 'img'], function(){
+gulp.task('default',['del',<% if (includeLess){ %> 'less',<% } else if (includeSass){%>'sass' <% } %> 'img'], function(){
 	var assets = useref.assets();
     return gulp.src('app/*.*')
         .pipe(assets)

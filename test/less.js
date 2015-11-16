@@ -1,3 +1,44 @@
-/**
- * Created by hikingyo on 16/11/2015.
- */
+'use strict';
+
+var path = require('path');
+var assert = require('yeoman-generator').assert;
+var helpers = require('yeoman-generator').test;
+var testPath = '../cionfire_test';
+var appPath = '../generators/app';
+
+describe('Sass feature', function () {
+    describe('on', function () {
+        before(function (done) {
+            helpers.run(path.join(__dirname, appPath))
+                .inDir(testPath)
+                .withOptions({'skip-install': true})
+                .withPrompts({
+                    features: [],
+                    stylessheetlanguage : 'less'
+                })
+                .on('end', done);
+        });
+
+        it('should create an LESS file', function () {
+            assert.file('app/style/main.less');
+        });
+    });
+
+    describe('off', function () {
+        before(function (done) {
+            helpers.run(path.join(__dirname, appPath))
+                .inDir(testPath)
+                .withOptions({'skip-install': true})
+                .withPrompts({
+                    features: [],
+                    stylessheetlanguage : 'css'
+                })
+                .on('end', done);
+        });
+
+        it('should create a CSS file', function () {
+            assert.file('app/style/main.css');
+        });
+    });
+});
+

@@ -156,5 +156,9 @@ describe('Bootstrap  feature', function () {
         it('should create main.css file', function(){
             assert.file('app/style/main.less');
         });
+
+        it('should contain @include bootstrap variable', function () {
+            assert.fileContent('app/style/main.less', '@import "bower_components/bootstrap/less/bootstrap.less"');
+        })
     });
 })

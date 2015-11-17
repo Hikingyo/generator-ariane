@@ -91,7 +91,7 @@ describe('Bootstrap  feature', function () {
         });
 
         it('should create main.css file', function(){
-            assert.file('app/style/main.css');
+            assert.file('app/styles/main.css');
         });
     });
 
@@ -116,7 +116,7 @@ describe('Bootstrap  feature', function () {
         });
 
         it('main.scss should contain the font path variable', function(){
-            assert.fileContent('app/style/main.scss', '$icon-font-path');
+            assert.fileContent('app/styles/main.scss', '$icon-font-path');
         });
 
         it('should correctly override bootstrap\'s bower.js', function (){
@@ -154,7 +154,7 @@ describe('Bootstrap  feature', function () {
         });
 
         it('should create main.css file', function(){
-            assert.file('app/style/main.less');
+            assert.file('app/styles/main.less');
         });
     });
 })

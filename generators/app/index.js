@@ -100,12 +100,12 @@ module.exports = yeoman.generators.Base.extend({
                 message: 'What more would you like?',
                 choices: [
                     {
-                        name: 'bootstrap',
+                        name: 'Bootstrap',
                         value: 'includeBootstrap',
                         checked: true
                     },
                     {
-                        name: 'modernizr',
+                        name: 'Modernizr',
                         value: 'includeModernizr',
                         checked: true
                     }
@@ -115,19 +115,19 @@ module.exports = yeoman.generators.Base.extend({
             {
                 type: 'list',
                 name: 'stylessheetlanguage',
-                message: 'Wich stylesheet language would you use ?',
+                message: 'Which stylesheet language would you use ?',
                 default: 0, // Css
                 choices: [
                     {
-                        name: 'Css',
+                        name: 'CSS',
                         value: 'css',
                     },
                     {
-                        name: 'Less',
+                        name: 'LESS',
                         value: 'less'
                     },
                     {
-                        name: 'Sass',
+                        name: 'SASS',
                         value: 'sass',
                     },
                 ]
@@ -264,11 +264,11 @@ module.exports = yeoman.generators.Base.extend({
         scripts: function () {
             this.fs.copy(
                 this.templatePath('scripts/javascript/main.js'),
-                this.destinationPath('app/scripts/javascript/main.js')
+                this.destinationPath('app/scripts/main.js')
             );
             this.fs.copy(
                 this.templatePath('scripts/javascript/plugins.js'),
-                this.destinationPath('app/scripts/javascript/plugins.js')
+                this.destinationPath('app/scripts/plugins.js')
             );
         },
 
@@ -352,7 +352,7 @@ module.exports = yeoman.generators.Base.extend({
 
             this.fs.copyTpl(
                 this.templatePath('styles/' + type + '/' + styleSheet + '.' + type),
-                this.destinationPath('app/style/' + styleSheet + '.' + type),
+                this.destinationPath('app/styles/' + styleSheet + '.' + type),
                 {
                     includeBootstrap : this.includeBootstrap
                 }
@@ -407,7 +407,7 @@ module.exports = yeoman.generators.Base.extend({
 
         misc: function () {
             mkdirp('app/img');
-            mkdirp('app/style/fonts');
+            mkdirp('app/styles/fonts');
         }
     },
 
@@ -444,7 +444,7 @@ module.exports = yeoman.generators.Base.extend({
         if (this.includeSass) {
             wiredep({
                 bowerJson: bowerJson,
-                src: 'app/style/*.scss',
+                src: 'app/styles/*.scss',
                 ignorePath: /^(\.\.\/)*\.\./
             });
         }

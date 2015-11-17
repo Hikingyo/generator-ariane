@@ -20,7 +20,7 @@ describe('Sass feature', function () {
         });
 
         it('should create an SCSS file', function () {
-            assert.file('app/style/main.scss');
+            assert.file('app/styles/main.scss');
         });
     });
 
@@ -37,7 +37,7 @@ describe('Sass feature', function () {
         });
 
         it('should create a CSS file', function () {
-            assert.file('app/style/main.css');
+            assert.file('app/styles/main.css');
         });
     });
 });

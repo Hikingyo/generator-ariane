@@ -6,7 +6,7 @@ var helpers = require('yeoman-generator').test;
 var testPath = '../cionfire_test';
 var appPath = '../generators/app';
 
-describe('Sass feature', function () {
+describe('Less feature', function () {
     describe('on', function () {
         before(function (done) {
             helpers.run(path.join(__dirname, appPath))
@@ -20,7 +20,7 @@ describe('Sass feature', function () {
         });
 
         it('should create an LESS file', function () {
-            assert.file('app/style/main.less');
+            assert.file('app/styles/main.less');
         });
     });
 
@@ -37,8 +37,7 @@ describe('Sass feature', function () {
         });
 
         it('should create a CSS file', function () {
-            assert.file('app/style/main.css');
+            assert.file('app/styles/main.css');
         });
     });
 });
-

@@ -6,7 +6,7 @@ var helpers = require('yeoman-generator').test;
 var testPath = '../cionfire_test';
 var appPath = '../generators/app';
 
-describe('Bootstrap  feature', function () {
+describe('Bootstrap feature', function () {
     describe('on', function () {
         before(function (done) {
 
@@ -25,11 +25,11 @@ describe('Bootstrap  feature', function () {
                 .on('end', done);
         });
 
-        it('adds the bootstrap dependency', function () {
+        it('adds the Bootstrap dependency', function () {
             assert.fileContent('bower.json', '"bootstrap"');
         });
 
-        it('don\'t explicitly add the Jquery dependency', function () {
+        it('don\'t explicitly add the jQuery dependency', function () {
             assert.noFileContent('bower.json', 'jquery');
         });
     });
@@ -49,11 +49,11 @@ describe('Bootstrap  feature', function () {
                 .on('end', done);
         });
 
-        it('don\'t the bootstrap dependency', function () {
+        it('don\'t the Bootstrap dependency', function () {
             assert.noFileContent('bower.json', '"bootstrap"');
         });
 
-        it('should explicitly add the Jquery dependency', function () {
+        it('should explicitly add the jQuery dependency', function () {
             assert.fileContent('bower.json', 'jquery');
         });
     });
@@ -84,7 +84,7 @@ describe('Bootstrap  feature', function () {
             assert.fileContent('app/index.html', /src="(.*?)\/bootstrap\/js\//);
         });
 
-        it('should correctly override bosstrap\'s bower.json', function() {
+        it('should correctly override Bootstrap\'s bower.json', function() {
             assert.fileContent('bower.json', 'dist/css/bootstrap.css');
             assert.fileContent('bower.json', 'dist/js/bootstrap.js');
             assert.fileContent('bower.json', 'dist/fonts/*');
@@ -111,7 +111,7 @@ describe('Bootstrap  feature', function () {
                 .on('end', done);
         });
 
-        it('should use bootstrap Sass', function() {
+        it('should use Bootstrap Sass', function() {
             assert.fileContent('bower.json', '"bootstrap-sass"');
         });
 
@@ -119,7 +119,7 @@ describe('Bootstrap  feature', function () {
             assert.fileContent('app/styles/main.scss', '$icon-font-path');
         });
 
-        it('should correctly override bootstrap\'s bower.js', function (){
+        it('should correctly override Bootstrap\'s bower.js', function (){
             assert.fileContent('bower.json', '"overrides"');
             assert.fileContent('bower.json', 'assets/stylesheets/_bootstrap.scss');
             assert.fileContent('bower.json', 'assets/fonts/bootstrap/*');
@@ -142,7 +142,7 @@ describe('Bootstrap  feature', function () {
                 .on('end', done);
         });
 
-        it('should use bootstrap', function() {
+        it('should use Bootstrap', function() {
             assert.fileContent('bower.json', '"bootstrap"');
         });
 
@@ -157,8 +157,8 @@ describe('Bootstrap  feature', function () {
             assert.file('app/styles/main.less');
         });
 
-        it('should contain @include bootstrap variable', function () {
-            assert.fileContent('app/style/main.less', '@import "bower_components/bootstrap/less/bootstrap.less"');
+        it('should contain @include Bootstrap variable', function () {
+            assert.fileContent('app/styles/main.less', '@import "bower_components/bootstrap/less/bootstrap.less"');
         })
     });
 });

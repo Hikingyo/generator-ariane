@@ -3,17 +3,10 @@
  * on <%= (new Date).toISOString().split('T')[0] %>
  */
 var gulp = require('gulp'),
-	useref = require('gulp-useref'),
-
-	<% if (includeSass){ %>
-sass = require('gulp-sass'),
-	<% } %>
-<% if (includeLess){ %>
-less = require('gulp-less'),
-	<% } %>
-
-path = require('path'),
-
+    useref = require('gulp-useref'),<% if (includeSass){ %>
+    sass = require('gulp-sass'),<% } %><% if (includeLess){ %>
+    less = require('gulp-less'),<% } %>
+    path = require('path'),
 	del = require('del'),
 	autoprefixer = require('gulp-autoprefixer'),
 	minifyCss = require('gulp-minify-css'),
@@ -25,11 +18,8 @@ path = require('path'),
 	wiredep = require('wiredep').stream,
 	browserSync = require('browser-sync').create();
 
-});
-
-<% if (includeCss) { %>
 //CSS task
-gulp.task('css', function() {
+<% if (includeCss) { %>gulp.task('css', function() {
 	return gulp.src('app/styles/*.css')
 		.pipe(plumber())
 		.pipe(autoprefixer({
@@ -40,12 +30,10 @@ gulp.task('css', function() {
 			compatibility: 'ie8'
 		}))
 		.pipe(gulp.dest('.tmp/styles'));
-});
-<% } %>
+});<% } %>
 
-<% if (includeLess) { %>
 // Less task
-gulp.task('less', ['css'], function() {
+<% if (includeLess) { %>gulp.task('less', ['css'], function() {
 	return gulp.src('app/styles/*.less')
 		.pipe(plumber())
 		.pipe(less({
@@ -53,9 +41,7 @@ gulp.task('less', ['css'], function() {
 			paths: [path.join('app/styles/', 'app/style/less')]
 		}))
 		.pipe(gulp.dest('.tmp/styles'))
-});
-<% } %>
-
+});<% } %>
 
 <% if (includeSass) { %>
 //Sass task
@@ -67,16 +53,15 @@ gulp.task('sass', ['css'], function() {
 			paths: [path.join('app/styles/', 'app/styles/scss')]
 		}))
 		.pipe(gulp.dest('.tmp/styles'))
-});
-<% } %>
+});<% } %>
+
 
 // Default task
 gulp.task('default', ['del', <% if (includeLess){ %>
 	'less', <% } %>
 	<% if (includeSass){ %>
 	'sass', <% } %>
-	'img'
-], function() {
+	'img'], function() {
 	var assets = useref.assets();
 	return gulp.src('app/*.*')
 		.pipe(assets)

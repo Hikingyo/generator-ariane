@@ -13,6 +13,7 @@ less = require('gulp-less'),
 	<% } %>
 
 path = require('path'),
+
 	del = require('del'),
 	autoprefixer = require('gulp-autoprefixer'),
 	minifyCss = require('gulp-minify-css'),
@@ -24,9 +25,6 @@ path = require('path'),
 	wiredep = require('wiredep').stream,
 	browserSync = require('browser-sync').create();
 
-// HTML
-gulp.task('html', function() {
-	return gulp.src('app/*.html')
 });
 
 <% if (includeCss) { %>
@@ -163,6 +161,7 @@ gulp.task('wiredep', function() {
 		.pipe(wiredep({
 			<% if(includeBootstrap) {
 			if(includeSass) { %>
+
 			exclude: ['bootstrap-scss'],
 				<%} else { %>
 			exclude: ['boostrap.js'],
@@ -170,4 +169,5 @@ gulp.task('wiredep', function() {
 			ignorePath: /^(\.\.\/)*\.\./
 		}))
 		.pipe(gulp.dest('app'));
+
 });

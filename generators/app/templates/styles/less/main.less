@@ -83,7 +83,7 @@ textarea {
 /* ==========================================================================
    Browser Upgrade Prompt
    ========================================================================== */
-
+<% if(includeBootstrap) { %>@import "bower_components/bootstrap/less/bootstrap.less"; <% } %>
 .browserupgrade {
     margin: 0.2em 0;
     background: #ccc;

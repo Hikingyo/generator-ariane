@@ -1,46 +1,77 @@
 # generator-cionfire [![Build Status](https://secure.travis-ci.org/Hikingyo/generator-cionfire.png?branch=master)](https://travis-ci.org/hikingyo/generator-cionfire)
 
-> [Cionfire](http://yeoman.io) generator
+
+## About this project
+
+Web projects do not meet all the same requirements and need a plethora of tools for their
+development.
+Furthermore, we all have preferences and workflow of our own or we want simply to discover
+other tools.
+So, with this generator, we offer the ability to deploy quickly and in a jiffy a development
+environment from the more simplest to the most complete.
 
 
-## Getting Started
+## Features
 
-### What is Cionfire?
 
-Trick question.It's not this guy . It's  a thing:
+### Front End
 
-![](http://i.imgur.com/JHaAlBJ.png)
+* CSS Autoprefixing
+* Built-in preview server with BrowserSync
+* Choose Sass, less or css for stylesheet
+* Automagically lint your scripts
+* Map compiled CSS to source stylesheets with source maps
+* Awesome image optimization
+* Automagically wire-up dependencies installed with [Bower](http://bower.io)
+* Choose tasks runner between [Gulp](http://gulpjs.com/) and [Grunt](http://gruntjs.com/)
+* Choose stylesheet framework between [Bootstrap](http://getbootstrap.com/) and [Foundation](http://foundation.zurb.com/)or nothing
+ 
+*For more information on what this generator can do for you, take a look at the [documentations](docs/README.md).*
 
-Basically, he wears a top hat, lives in your computer, and waits for you to tell him what kind of application you wish to create.
 
-Not every new computer comes with a Yeoman pre-installed. He lives in the [npm](https://npmjs.org) package repository. You only have to ask for him once, then he packs up and moves into your hard drive. *Make sure you clean up, he likes new and shiny things.*
+## libsass
 
-```bash
-npm install -g yo
-```
+Keep in mind that libsass is feature-wise not fully compatible with Ruby Sass. Check out [this](http://sass-compatibility.github.io) curated list of incompatibilities to find out which features are missing.
 
-### Cionfire Generators
+If your favorite feature is missing and you really need Ruby Sass, you can always switch to [gulp-ruby-sass](https://github.com/sindresorhus/gulp-ruby-sass) and update the `styles` task in gulpfile accordingly.
 
-With our generator, you can install an highly configurable development environment for php web app. From front end to back end, you can make plenty of choices to set up a workflow like at home.
 
-To install generator-cionfire from npm, run:
+## Getting Started (with gulp)
 
-```bash
-npm install -g generator-cionfire
-```
+- Install yeoman : `npm install -g yo gulp bower`
+- Install the generator: `npm install -g generator-cionfire`
+- Run `yo cionfire` to scaffold your webapp
+- Run `gulp serve` to preview and watch for changes
+- Run `bower install --save <package>` to install frontend dependencies
+- Run `gulp serve:test` to run the tests in the browser
+- Run `gulp` to build your webapp for production
+- Run `gulp serve:dist` to preview the production build
 
-Finally, initiate the generator:
 
-```bash
-yo cionfire
-```
+## Docs
 
-### Getting To Know Cionfire
+* [getting started](docs/README.md) with this generator
+* [recipes](docs/recipes/README.md) for integrating other popular technologies like CoffeeScript
+* [details](docs/bower.md) about our Bower setup
 
-Because it's fastidious to install and set up multiples tools for each new project, we have created this generator to help you to fireup this step.
-Because you prefere Scass to Less, Boostrap to Foundation, TypeScript to CoffeeScript ( what, whait, you don't like coffee Oo ...), or you just want to run a simple HTML project, we have make this generator to help you.
+
+## Options
+
+- `--skip-welcome-message`
+  Skips Yeoman's greeting before displaying options. You shouldn't do that ...
+- `--skip-install-message`
+  Skips the the message displayed after scaffolding has finished and before the dependencies are being installed.
+- `--skip-install`
+  Skips the automatic execution of `bower` and `npm` after scaffolding has finished.
+- `--test-framework=<framework>`
+  Either `mocha` or `jasmine`. Defaults to `mocha` for your tests.
+
+
+## Contribute
+
+See the [contributing docs](contributing.md).
 
 
 ## License
 
-MIT
+[BSD license](http://opensource.org/licenses/bsd-license.php)

@@ -21,7 +21,7 @@
     }
   ],
   "scripts": {
-    "test": "mocha --reporter spec"
+    "test": "mocha --reporter spec --timeout 3000"
   },
   "files": [
     "generators"
@@ -32,9 +32,11 @@
     "less",
     "scass",
     "bootstrap",
+    "foundation",
     "gulp",
     "grunt",
-    "html5bp"
+    "html5bp",
+    "modernizr"
   ],
   "dependencies": {
     "chalk": "^1.0.0",
@@ -43,13 +45,11 @@
     "mkdirp": "^0.5.1",
     "underscore.string": "^3.2.2",
     "wiredep": "^2.2.2",
+    "yeoman-assert": "^2.1.0",
     "yeoman-generator": "^0.21.1",
     "yosay": "^1.1.0"
   },
   "devDependencies": {
-    "fs-extra": "^0.26.2",
-    "grunt-cli": "^0.1.13",
-    "gulp-cli": "^0.3.0",
     "mocha": "*"
   }
 }

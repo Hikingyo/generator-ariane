@@ -89,6 +89,20 @@ module.exports = yeoman.generators.Base.extend({
 
             {
                 type: 'input',
+                name: 'repoURL',
+                message: 'The repository URL',
+                default: ''
+            },
+
+            {
+                type: 'input',
+                name: 'repoType',
+                message: 'Type of the repository (eg. git, hg ...)',
+                default: 'git'
+            },
+
+            {
+                type: 'input',
                 name: 'projectdescription',
                 message: 'Describe your project',
                 default: 'A sample project.'
@@ -155,7 +169,8 @@ module.exports = yeoman.generators.Base.extend({
             this.username = answers.username;
             this.projectname = answers.projectname;
             this.projectdescription = answers.projectdescription;
-
+            this.repoURL = answers.repoURL;
+            this.repoType = answers.repoType,
             this.includeBootstrap = hasFeature('includeBootstrap');
             this.includeJQuery = answers.includeJQuery;
             this.includeModernizr = hasFeature('includeModernizr');
@@ -193,6 +208,8 @@ module.exports = yeoman.generators.Base.extend({
                     username: this.username,
                     projectname: this.projectname,
                     projectdescription: this.projectdescription,
+                    repoURL: this.repoURL,
+                    repoType : this.repoType,
                     testFramework: this.options['test-framework'],
                     useBabel: this.options['babel']
                 }
@@ -272,7 +289,7 @@ module.exports = yeoman.generators.Base.extend({
             );
         },
 
-        git: function () {
+        git: function () { //TODO see repoType option
             this.fs.copy(
                 this.templatePath('gitignore'),
                 this.destinationPath('.gitignore')
@@ -400,7 +417,7 @@ module.exports = yeoman.generators.Base.extend({
 
         documentation: function () {
             this.fs.copy(
-                this.templatePath('docs/**.md'),
+                this.templatePath('docs/**/**.*'),
                 this.destinationPath('docs/')
             );
         },

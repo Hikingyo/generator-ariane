@@ -10,12 +10,15 @@ other tools.
 So, with this generator, we offer the ability to deploy quickly and in a jiffy a development
 environment from the more simplest to the most complete.
 
+Big up to Html5bp, Yeoman, Gulp, Grunt, Bower, Browsersync.
+
 
 ## Features
 
 
 ### Front End
 
+* [HTML5 Boilerplate](https://github.com/h5bp/html5-boilerplate)
 * CSS Autoprefixing
 * Built-in preview server with BrowserSync
 * Choose Sass, less or css for stylesheet
@@ -24,7 +27,7 @@ environment from the more simplest to the most complete.
 * Awesome image optimization
 * Automagically wire-up dependencies installed with [Bower](http://bower.io)
 * Choose tasks runner between [Gulp](http://gulpjs.com/) and [Grunt](http://gruntjs.com/)
-* Choose stylesheet framework between [Bootstrap](http://getbootstrap.com/) and [Foundation](http://foundation.zurb.com/)or nothing
+* Choose stylesheet framework between [Bootstrap](http://getbootstrap.com/) and [Foundation](http://foundation.zurb.com/) or nothing
  
 *For more information on what this generator can do for you, take a look at the [documentations](docs/README.md).*
 
@@ -36,7 +39,9 @@ Keep in mind that libsass is feature-wise not fully compatible with Ruby Sass. C
 If your favorite feature is missing and you really need Ruby Sass, you can always switch to [gulp-ruby-sass](https://github.com/sindresorhus/gulp-ruby-sass) and update the `styles` task in gulpfile accordingly.
 
 
-## Getting Started (with gulp)
+## Getting Started
+
+### With gulp
 
 - Install yeoman : `npm install -g yo gulp bower`
 - Install the generator: `npm install -g generator-cionfire`
@@ -47,6 +52,16 @@ If your favorite feature is missing and you really need Ruby Sass, you can alway
 - Run `gulp` to build your webapp for production
 - Run `gulp serve:dist` to preview the production build
 
+### With grunt
+
+- Install yeoman : `npm install -g yo grunt bower`
+- Install the generator: `npm install -g generator-cionfire`
+- Run `yo cionfire` to scaffold your webapp
+- Run `grunt serve` to preview and watch for changes
+- Run `bower install --save <package>` to install frontend dependencies
+- Run `grunt serve:test` to run the tests in the browser
+- Run `grunt` to build your webapp for production
+- Run `grunt serve:dist` to preview the production build
 
 ## Docs
 

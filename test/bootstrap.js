@@ -123,7 +123,7 @@ describe('Bootstrap feature', function () {
             assert.fileContent('bower.json', '"overrides"');
             assert.fileContent('bower.json', 'assets/stylesheets/_bootstrap.scss');
             assert.fileContent('bower.json', 'assets/fonts/bootstrap/*');
-            assert.fileContent('bower.json', 'assets/javascript/bootstrap.js');
+            assert.fileContent('bower.json', 'assets/javascripts/bootstrap.js');
         });
     });
     describe('with Less', function() {
@@ -146,19 +146,19 @@ describe('Bootstrap feature', function () {
             assert.fileContent('bower.json', '"bootstrap"');
         });
 
-        it('should correctly override bosstrap\'s bower.json', function() {
+        it('should correctly override Boostrap\'s bower.json', function() {
             assert.fileContent('bower.json', '"overrides"');
             assert.fileContent('bower.json', 'less/bootstrap.less');
             assert.fileContent('bower.json', 'dist/js/bootstrap.js');
             assert.fileContent('bower.json', 'dist/fonts/*');
         });
 
-        it('should create main.css file', function(){
+        it('should create main.less file', function(){
             assert.file('app/styles/main.less');
         });
 
         it('should contain @include Bootstrap variable', function () {
-            assert.fileContent('app/styles/main.less', '@import "bower_components/bootstrap/less/bootstrap.less"');
+            assert.fileContent('app/styles/main.less', 'bower_components/bootstrap/less/bootstrap.less');
         })
     });
 });

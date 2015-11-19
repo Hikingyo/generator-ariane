@@ -2,66 +2,67 @@
  * gulpfile.js generated automaticly using <%= pkg.name %> <%= pkg.version %>
  * on <%= (new Date).toISOString().split('T')[0] %>
  */
-var gulp = require('gulp'),
-    useref = require('gulp-useref'),<% if (includeSass){ %>
-    sass = require('gulp-sass'),<% } %><% if (includeLess){ %>
-    less = require('gulp-less'),<% } %>
-    path = require('path'),
-	del = require('del'),
-	autoprefixer = require('gulp-autoprefixer'),
-	minifyCss = require('gulp-minify-css'),
-	gulpif = require('gulp-if'),
-	uglify = require('gulp-uglify'),
-	imagemin = require('gulp-imagemin'),
-	plumber = require('gulp-plumber'),
-	pngquant = require('imagemin-pngquant'),
-	wiredep = require('wiredep').stream,
-	browserSync = require('browser-sync').create();
+var gulp = require('gulp');
+var gulpLoadPlugins = require('gulp-load-plugins');
+var browserSync = require('browser-sync');
+var wiredep = require('wiredep');
+var wiredepStream = wiredep.stream;
 
-//CSS task
-<% if (includeCss) { %>gulp.task('css', function() {
+var $ = gulpLoadPlugins();
+var reload = browserSync.reload;
+
+// HTML task
+gulp.task('html', ['styles'], function() {
+
+	var assets = $.useref.assets({
+		searchPath: ['.tmp', 'app', '.']
+	});
+	return gulp.src('app/*.html')
+	.pipe(assets)
+		.pipe($.if('*.js', $.uglify()))
+		.pipe($.if('*.css', $.minifyCss({
+			compatibility: '*'
+		})))
+		.pipe(assets.restore())
+		.pipe($.useref())
+		.pipe($.if('*.html', $.minifyHtml({
+			conditionals: true,
+			loose: true
+		})))
+		.pipe(gulp.dest('dist'));
+});
+
+// Style task
+gulp.task('styles', function() {
+	<% if (includeCss) { %>
 	return gulp.src('app/styles/*.css')
-		.pipe(plumber())
-		.pipe(autoprefixer({
+		.pipe($.plumber())
+	<% } %>
+	<% if (includeLess) { %>
+	return gulp.src('app/styles/*.less')
+		.pipe($.plumber())
+		.pipe($.sourcemaps.init())
+		.pipe($.less())
+
+	<% } %>
+	<% if (includeSass) { %>
+	return gulp.src('app/styles/*.scss')
+		.pipe($.plumber())
+		.pipe($.sourcemaps.init())
+		.pipe($.sass())
+
+	<% } %>
+
+		.pipe($.autoprefixer({
 			browsers: ['last 2 versions'],
 			cascade: false
 		}))
-		.pipe(minifyCss({
-			compatibility: 'ie8'
-		}))
+		.pipe($.sourcemaps.write())
 		.pipe(gulp.dest('.tmp/styles'));
-});<% } %>
-
-// Less task
-<% if (includeLess) { %>gulp.task('less', ['css'], function() {
-	return gulp.src('app/styles/*.less')
-		.pipe(plumber())
-		.pipe(less({
-			relativeUrls: true,
-			paths: [path.join('app/styles/', 'app/style/less')]
-		}))
-		.pipe(gulp.dest('.tmp/styles'))
-});<% } %>
-
-<% if (includeSass) { %>
-//Sass task
-gulp.task('sass', ['css'], function() {
-	return gulp.src('app/styles/**/*.scss')
-		.pipe(plumber())
-		.pipe(sass({
-			relativeUrls: true,
-			paths: [path.join('app/styles/', 'app/styles/scss')]
-		}))
-		.pipe(gulp.dest('.tmp/styles'))
-});<% } %>
-
+});
 
 // Default task
-gulp.task('default', ['del', <% if (includeLess){ %>
-	'less', <% } %>
-	<% if (includeSass){ %>
-	'sass', <% } %>
-	'img'], function() {
+gulp.task('default', ['del', 'styles', 'img'], function() {
 	var assets = useref.assets();
 	return gulp.src('app/*.*')
 		.pipe(assets)
@@ -84,34 +85,28 @@ gulp.task('img', function() {
 		.pipe(gulp.dest('dist/img'));
 });
 
-gulp.task('html:watch', ['html'], browserSync.reload);
-gulp.task('css:watch', ['css'], browserSync.reload);
-<% if (includeSass){ %>
-gulp.task('sass:watch', ['sass'], browserSync.reload);
-<% } %>
-<% if (includeLess){ %>
-gulp.task('less:watch', ['less'], browserSync.reload);
-<% } %>
-gulp.task('js:watch', ['js'], browserSync.reload);
-
 // Server
-gulp.task('serve', ['wiredep', 'html', 'css'], function() {
+gulp.task('serve', ['wiredep', 'html', 'styles'], function() {
 	browserSync.init({
 		server: {
 			port: 9000,
 			baseDir: ['.tmp', 'app'],
+	        routes: {
+	          '/bower_components': 'bower_components'
+	        }
 		}
 	});
 
-	gulp.watch("app/*.html").on('change', ['html'], browserSync.reload);
-	gulp.watch("styles/*.css", ['css:watch']);
-	<% if (includeLess){ %>
-	gulp.watch("styles/*.less", ['less:watch']);
-	<% } %>
-	<% if (includeSass){ %>
-	gulp.watch("styles/*.scss", ['sass:watch']);
-	<% } %>
-	gulp.watch("scripts/*.js", ['js:watch']);
+	gulp.watch([
+		'app/*.html',
+		'app/scripts/**/*.js',
+		'app/images/**/*',
+		'.tmp/fonts/**/*'
+	]).on('change', reload);
+
+	gulp.watch('app/styles/**/*.*', ['styles']).on('change', reload);
+	gulp.watch('app/fonts/**/*', ['fonts']);
+	gulp.watch('bower.json', ['wiredep', 'fonts']);
 });
 
 // Cleaning dist before main task
@@ -123,27 +118,27 @@ gulp.task('del', function() {
 gulp.task('wiredep', function() {
 	<% if(includeSass){ %>
 	gulp.src('app/styles/*.scss')
-		.pipe(wiredep({
+		.pipe(wiredepStream({
 			ignorePath: /^(\.\.\/)+/
 		}))
 		.pipe(gulp.dest('app/styles'));
 	<% } %>
 	<% if(includeLess){ %>
 	gulp.src('app/styles/*.less')
-		.pipe(wiredep({
+		.pipe(wiredepStream({
 			ignorePath: /^(\.\.\/)+/
 		}))
 		.pipe(gulp.dest('app/styles'));
 	<% } %>
 	<% if(includeCss){ %>
 	gulp.src('app/styles/*.css')
-		.pipe(wiredep({
+		.pipe(wiredepStream({
 			ignorePath: /^(\.\.\/)+/
 		}))
 		.pipe(gulp.dest('app/styles'));
 	<% } %>
 	gulp.src('app/*.html')
-		.pipe(wiredep({
+		.pipe(wiredepStream({
 			<% if(includeBootstrap) {
 			if(includeSass) { %>
 

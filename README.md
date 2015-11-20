@@ -1,4 +1,4 @@
-# Cionfire [![Build Status](https://secure.travis-ci.org/Hikingyo/generator-cionfire.png?branch=master)](https://travis-ci.org/hikingyo/generator-cionfire)
+# Generator Cionfire [![Build Status](https://secure.travis-ci.org/Hikingyo/generator-cionfire.png?branch=master)](https://travis-ci.org/hikingyo/generator-cionfire)
 
 
 ## About
@@ -63,9 +63,9 @@ If your favorite feature is missing and you really need Ruby Sass, you can alway
 
 ## Docs
 
-* [getting started](docs/README.md) with this generator
-* [recipes](docs/recipes/README.md) for integrating other popular technologies like CoffeeScript
-* [details](docs/bower.md) about our Bower setup
+* [Getting started](docs/README.md) with this generator
+* [Recipes](docs/recipes/README.md) for integrating other popular technologies like CoffeeScript
+* [Details](docs/bower.md) about our Bower setup
 
 
 ## Options

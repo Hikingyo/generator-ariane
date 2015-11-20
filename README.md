@@ -22,9 +22,9 @@ Special thanks to the teams of HTML5 Boilerplate, Yeoman, Gulp, Grunt, Bower, Br
 * Map compiled CSS to source stylesheets with source maps
 * Lint & uglify your scripts
 * Built-in preview server with Browsersync
-* Awesome image optimization
-* Wire-up dependencies installed with [Bower](http://bower.io)
 * Choose your task runner between [Gulp](http://gulpjs.com/) and [Grunt](http://gruntjs.com/)
+* Image optimization
+* Automatically wire-up dependencies installed with [Bower](http://bower.io)
 
 
 *For more informations on what this generator can do for you, take a look at the [documentations](docs/README.md).*

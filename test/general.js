@@ -3,6 +3,8 @@
 var path = require('path');
 var assert = require('yeoman-assert');
 var helpers = require('yeoman-generator').test;
+var testPath = '../cionfire_test';
+var appPath = '../generators/app';
 
 describe('general', function () {
 
@@ -12,8 +14,8 @@ describe('general', function () {
 
     describe('default config', function () {
         before(function (done) {
-            helpers.run(path.join(__dirname, '../generators/app'))
-                .inDir('../tmp')
+            helpers.run(path.join(__dirname, appPath))
+                .inDir(testPath)
                 .withOptions({skipInstall: true})
                 .withPrompts(
                     {
@@ -51,8 +53,8 @@ describe('general', function () {
 
     describe('copying files', function () {
         before(function (done) {
-            helpers.run(path.join(__dirname, '../generators/app'))
-                .inDir('../tmp')
+            helpers.run(path.join(__dirname,appPath))
+                .inDir(testPath)
                 .withOptions({skipInstall: true})
                 .withPrompts(
                     {

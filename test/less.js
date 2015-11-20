@@ -13,6 +13,11 @@ describe('Less feature', function () {
                 .inDir(testPath)
                 .withOptions({'skip-install': true})
                 .withPrompts({
+                    username: '',
+                    projectname: '',
+                    projectdescription: '',
+                    repoURL : 'https://github.com/taptapship/wiredep.git',
+                    repoType : '',
                     features: [],
                     stylessheetlanguage : 'less'
                 })
@@ -30,6 +35,11 @@ describe('Less feature', function () {
                 .inDir(testPath)
                 .withOptions({'skip-install': true})
                 .withPrompts({
+                    username: '',
+                    projectname: '',
+                    projectdescription: '',
+                    repoURL : 'https://github.com/taptapship/wiredep.git',
+                    repoType : '',
                     features: [],
                     stylessheetlanguage : 'css'
                 })

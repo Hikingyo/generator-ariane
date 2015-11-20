@@ -44,6 +44,11 @@ describe('Bootstrap feature', function () {
                     })
                 .withPrompts(
                     {
+                        username: '',
+                        projectname: '',
+                        projectdescription: '',
+                        repoURL : '',
+                        repoType : '',
                         features: []
                     })
                 .on('end', done);
@@ -66,6 +71,11 @@ describe('Bootstrap feature', function () {
                 .withOptions({ 'skip-install': true})
                 .withPrompts(
                     {
+                        username: '',
+                        projectname: '',
+                        projectdescription: '',
+                        repoURL : '',
+                        repoType : '',
                         features : [
                             'includeBootstrap'
                         ],
@@ -102,6 +112,11 @@ describe('Bootstrap feature', function () {
                 .withOptions({'skip-install': true})
                 .withPrompts(
                     {
+                        username: '',
+                        projectname: '',
+                        projectdescription: '',
+                        repoURL : '',
+                        repoType : '',
                         features : [
                             'includeBootstrap'
                         ],
@@ -133,6 +148,11 @@ describe('Bootstrap feature', function () {
                 .withOptions({'skip-install': true})
                 .withPrompts(
                     {
+                        username: '',
+                        projectname: '',
+                        projectdescription: '',
+                        repoURL : '',
+                        repoType : '',
                         features : [
                             'includeBootstrap'
                         ],
@@ -156,9 +176,5 @@ describe('Bootstrap feature', function () {
         it('should create main.less file', function(){
             assert.file('app/styles/main.less');
         });
-
-        it('should contain @include Bootstrap variable', function () {
-            assert.fileContent('app/styles/main.less', 'bower_components/bootstrap/less/bootstrap.less');
-        })
     });
 });

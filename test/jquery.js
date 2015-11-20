@@ -3,12 +3,13 @@
 var path = require('path');
 var assert = require('yeoman-assert');
 var helpers = require('yeoman-generator').test;
-var os = require('os');
+var testPath = '../cionfire_test';
+var appPath = '../generators/app';
 
 describe('jquery', function () {
 	describe('including jQuery', function () {
 		before(function (done) {
-			helpers.run(path.join(__dirname, '../generators/app'))
+			helpers.run(path.join(__dirname, appPath))
 			.withOptions({
 				'skip-install' : true
 			})
@@ -27,7 +28,7 @@ describe('jquery', function () {
 
 	describe('not including jQuery', function () {
 		before(function (done) {
-			helpers.run(path.join(__dirname, '../generators/app'))
+			helpers.run(path.join(__dirname, appPath))
 			.withOptions({
 				'skip-install' : true
 			})

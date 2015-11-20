@@ -38,21 +38,20 @@ module.exports = yeoman.generators.Base.extend({
 			defaults: 'mocha'
 		});
 
-		if (this.options['test-framework'] === 'mocha') {
-			testLocal = require.resolve('generator-mocha/generators/app/index.js');
-		} else {
-			testLocal = require.resolve('generator-jasmin/generators/app/index.js');
-		}
+        if (this.options['test-framework'] === 'mocha') {
+            testLocal = require.resolve('generator-mocha/generators/app/index.js');
+        } else if (this.options['test-framework'] === 'jasmine') {
+            testLocal = require.resolve('generator-jasmine/generators/app/index.js');
+        }
 
-		this.composeWith(this.options['test-framework'] + ':app', {
-			options: {
-				'skip-install': this.options['skip-install']
-			}
-		}, {
-			local: testLocal
-		});
-
-	},
+        this.composeWith(this.options['test-framework'] + ':app', {
+            options: {
+                'skip-install': this.options['skip-install']
+            }
+        }, {
+            local: testLocal
+        });
+    },
 
 	initializing: function() {
 		this.pkg = require('../../package.json');
@@ -180,7 +179,8 @@ module.exports = yeoman.generators.Base.extend({
 					includeLess: this.includeLess,
 					includeSass: this.includeSass,
 					includeCss: this.includeCss,
-					includeBootstrap: this.includeBootstrap
+					includeBootstrap: this.includeBootstrap,
+                    testFramework: this.options['test-framework']
 				}
 			);
 		},

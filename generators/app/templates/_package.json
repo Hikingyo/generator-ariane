@@ -15,7 +15,7 @@
   "devDependencies": {
     "del": "^2.0.2",
     "gulp": "^3.9.0",<% if (useBabel) { %>
-      "gulp-babel" : "^6.1.0", <% } %>
+    "gulp-babel" : "^6.1.0", <% } %>
     "gulp-if": "^2.0.0",
     "gulp-imagemin": "^2.3.0",
     <% if (includeSass) { %>
@@ -37,6 +37,7 @@
     "gulp-sourcemaps": "^1.5.0",
     "imagemin-pngquant": "^4.2.0",
     "wiredep": "^2.2.2",
+    "main-bower-files": "^2.5.0",
     "browser-sync": "^2.7.7"
   },
   "engines" : {

@@ -17,11 +17,11 @@ Special thanks to the teams of HTML5 Boilerplate, Yeoman, Gulp, Grunt, Bower, Br
 
 * A HMTL boilerplate (based on the critically acclaimed [HTML5 Boilerplate](https://github.com/h5bp/html5-boilerplate))
 * CSS autoprefixing & minifying
-* Choose between Sass, Less or CSS for your stylesheets
+* Choose between [Sass](http://sass-lang.com/), [Less](http://lesscss.org/) or CSS for your stylesheets
 * [Bootstrap](http://getbootstrap.com/) & [Foundation](http://foundation.zurb.com/) support
 * Map compiled CSS to source stylesheets with source maps
 * Lint & uglify your scripts
-* Built-in preview server with Browsersync
+* Built-in preview server with [Browsersync](http://www.browsersync.io/)
 * Choose your task runner between [Gulp](http://gulpjs.com/) and [Grunt](http://gruntjs.com/)
 * Image optimization
 * Automatically wire-up dependencies installed with [Bower](http://bower.io)

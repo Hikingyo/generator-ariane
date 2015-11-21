@@ -22,7 +22,7 @@ describe('general', function () {
                         username: '',
                         projectName: '',
                         projectDescription: '',
-                        repoURL : 'https://github.com/taptapship/wiredep.git',
+                        repoURL : 'git://github.com/taptapship/wiredep.git',
                         repoType : '',
                         features: [],
                         stylesSheetLanguage : ''

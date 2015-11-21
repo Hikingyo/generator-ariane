@@ -7,9 +7,10 @@ var gulpLoadPlugins = require('gulp-load-plugins');
 var browserSync = require('browser-sync');
 var wiredep = require('wiredep');
 var wiredepStream = wiredep.stream;
-
 var $ = gulpLoadPlugins();
 var reload = browserSync.reload;
+var del = require('del');
+var pngquant = require('imagemin-pngquant');
 
 // HTML task
 gulp.task('html', ['styles'], function() {
@@ -62,14 +63,18 @@ gulp.task('styles', function() {<% if (includeCss) { %>
 // Images task
 gulp.task('img', function() {
 	return gulp.src('app/img/**/*')
-		.pipe(imagemin({
+		.pipe($.if($.if.isFile, $.cache($.imagemin({
 			progressive: true,
 			svgoPlugins: [{
 				removeViewBox: false,
                 cleanupIDs : false
 			}],
 			use: [pngquant()]
-		}))
+		}))))
+        .on('error', function (err) {
+            console.log(err);
+            this.end();
+        })
 		.pipe(gulp.dest('dist/img'));
 });
 
@@ -194,12 +199,9 @@ function lint(files, opt){
 }
 
 var testLintOptions = {
-    env : {
-    <% if(testFramework === 'mocha') { -%>
-        mocha: true
-    <% }else if (testFramework === 'jasmine') { -%>
-        jasmine : true
-    <%} -%>
+    env : {<% if(testFramework === 'mocha') { %>
+        mocha: true<% }else if (testFramework === 'jasmine') { %>
+        jasmine : true<%} %>
     }
 };
 
@@ -207,7 +209,7 @@ gulp.task('lint', lint('app/scripts/**/*.js'));
 gulp.task('lint:test', lint('test/spec/**/*.js', testLintOptions));
 
 // build task
-gulp.task('build', ['lint', 'html', 'images', 'fonts', 'extras'], function() {
+gulp.task('build', ['lint', 'html', 'img', 'fonts', 'extras'], function() {
     return gulp.src('dist/**/*').pipe($.size({title: 'build', gzip: true}));
 });
 

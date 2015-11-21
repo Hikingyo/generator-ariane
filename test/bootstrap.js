@@ -9,7 +9,6 @@ var appPath = '../generators/app';
 describe('Bootstrap feature', function () {
     describe('on', function () {
         before(function (done) {
-
             helpers.run(path.join(__dirname, appPath))
                 .inDir(testPath)
                 .withOptions(

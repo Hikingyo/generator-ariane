@@ -14,7 +14,7 @@ describe('Sass feature', function () {
                 .withOptions({'skip-install': true})
                 .withPrompts({
                     features: [],
-                    stylessheetlanguage : 'sass'
+                    stylesSheetLanguage : 'sass'
                 })
                 .on('end', done);
         });

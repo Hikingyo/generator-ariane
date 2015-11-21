@@ -14,7 +14,6 @@ describe('jquery', function () {
 				'skip-install' : true
 			})
 			.withPrompts({
-				username : '',
 				features : [],
 				includeJQuery : true
 			})
@@ -33,7 +32,6 @@ describe('jquery', function () {
 				'skip-install' : true
 			})
 			.withPrompts({
-				username : '',
 				features : [],
 				includeJQuery : false
 			})

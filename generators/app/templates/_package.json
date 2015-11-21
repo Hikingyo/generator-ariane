@@ -1,7 +1,7 @@
 {
-  "name": "<%= projectname %>",
+  "name": "<%= projectName %>",
   "version": "0.0.1",
-  "description": "<%= projectdescription %>",
+  "description": "<%= projectDescription %>",
   "main": "index.html",
   "man" : ["docs/README.md"],
   "scripts": {

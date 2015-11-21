@@ -12,11 +12,6 @@ describe('gulp tasks', function () {
             .withOptions({skipInstall: true})
             .withPrompts(
                 {
-                    username: '',
-                    projectname: '',
-                    projectdescription: '',
-                    repoURL : 'http://my_test_repo.git',
-                    repoType : '',
                     features: []
                 })
             .on('end', done);

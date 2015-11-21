@@ -76,14 +76,14 @@ module.exports = yeoman.generators.Base.extend({
 
 			{
 				type: 'input',
-				name: 'projectname',
+				name: 'projectName',
 				message: 'What\'s your project name',
-				default: 'webapp'
+				default: 'CiOnFire'
 			},
 
 			{
 				type: 'input',
-				name: 'projectdescription',
+				name: 'projectDescription',
 				message: 'Describe your project',
 				default: 'A sample project.'
 			},
@@ -119,7 +119,7 @@ module.exports = yeoman.generators.Base.extend({
 
 			{
 				type: 'list',
-				name: 'stylessheetlanguage',
+				name: 'stylesSheetLanguage',
 				message: 'Which stylesheet language would you use ?',
 				default: 0, // Css
 				choices: [{
@@ -154,16 +154,16 @@ module.exports = yeoman.generators.Base.extend({
 			}
 
 			this.username = answers.username;
-            this.projectname = answers.projectname;
-            this.projectdescription = answers.projectdescription;
+            this.projectName = answers.projectName;
+            this.projectDescription = answers.projectDescription;
             this.repoURL = answers.repoURL;
             this.repoType = answers.repoType,
             this.includeBootstrap = hasFeature('includeBootstrap');
             this.includeJQuery = answers.includeJQuery;
             this.includeModernizr = hasFeature('includeModernizr');
-            this.includeLess = answers.stylessheetlanguage == 'less';
-            this.includeSass = answers.stylessheetlanguage == 'sass';
-            this.includeCss = answers.stylessheetlanguage == 'css';
+            this.includeLess = answers.stylesSheetLanguage == 'less';
+            this.includeSass = answers.stylesSheetLanguage == 'sass';
+            this.includeCss = answers.stylesSheetLanguage == 'css';
 
 			done();
 		}.bind(this));
@@ -192,8 +192,8 @@ module.exports = yeoman.generators.Base.extend({
 					includeLess: this.includeLess,
 					includeSass: this.includeSass,
 					username: this.username,
-					projectname: this.projectname,
-					projectdescription: this.projectdescription,
+					projectName: this.projectName,
+					projectDescription: this.projectDescription,
                     repoURL: this.repoURL,
                     repoType : this.repoType,
 					testFramework: this.options['test-framework'],
@@ -205,7 +205,7 @@ module.exports = yeoman.generators.Base.extend({
 		bower: function() {
 
 			var bowerJson = {
-				name: _s.slugify(this.projectname),
+				name: _s.slugify(this.projectName),
 				private: true,
 				dependencies: {}
 			};
@@ -316,7 +316,7 @@ module.exports = yeoman.generators.Base.extend({
 			this.fs.copyTpl(
 				this.templatePath('index.html'),
 				this.destinationPath('app/index.html'), {
-					projectname: this.projectname,
+					projectName: this.projectName,
 					includeSass: this.includeSass,
 					includeBootstrap: this.includeBootstrap,
 					includeModernizr: this.includeModernizr,

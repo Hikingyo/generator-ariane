@@ -20,11 +20,12 @@ describe('general', function () {
                 .withPrompts(
                     {
                         username: '',
-                        projectname: '',
-                        projectdescription: '',
+                        projectName: '',
+                        projectDescription: '',
                         repoURL : 'https://github.com/taptapship/wiredep.git',
                         repoType : '',
-                        features: []
+                        features: [],
+                        stylesSheetLanguage : ''
                     })
                 .on('end', done);
         });
@@ -33,8 +34,8 @@ describe('general', function () {
             assert.fileContent('package.json', 'JohnDoe');
         });
 
-        it('default projectname', function () {
-            assert.fileContent('package.json', 'webapp');
+        it('default projectName', function () {
+            assert.fileContent('package.json', 'CiOnFire');
         });
 
         it('default project description', function () {
@@ -59,8 +60,8 @@ describe('general', function () {
                 .withPrompts(
                     {
                         username: '',
-                        projectname: '',
-                        projectdescription: '',
+                        projectName: '',
+                        projectDescription: '',
                         repoURL : 'http://my_test_repo.git',
                         repoType : '',
                         features: []

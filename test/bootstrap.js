@@ -44,8 +44,8 @@ describe('Bootstrap feature', function () {
                 .withPrompts(
                     {
                         username: '',
-                        projectname: '',
-                        projectdescription: '',
+                        projectName: '',
+                        projectDescription: '',
                         repoURL : '',
                         repoType : '',
                         features: []
@@ -71,14 +71,14 @@ describe('Bootstrap feature', function () {
                 .withPrompts(
                     {
                         username: '',
-                        projectname: '',
-                        projectdescription: '',
+                        projectName: '',
+                        projectDescription: '',
                         repoURL : '',
                         repoType : '',
                         features : [
                             'includeBootstrap'
                         ],
-                        stylessheetlanguage : 'css'
+                        stylesSheetLanguage : 'css'
 
                     }
                 )
@@ -112,14 +112,14 @@ describe('Bootstrap feature', function () {
                 .withPrompts(
                     {
                         username: '',
-                        projectname: '',
-                        projectdescription: '',
+                        projectName: '',
+                        projectDescription: '',
                         repoURL : '',
                         repoType : '',
                         features : [
                             'includeBootstrap'
                         ],
-                        stylessheetlanguage : 'sass'
+                        stylesSheetLanguage : 'sass'
                     }
                 )
                 .on('end', done);
@@ -148,14 +148,14 @@ describe('Bootstrap feature', function () {
                 .withPrompts(
                     {
                         username: '',
-                        projectname: '',
-                        projectdescription: '',
+                        projectName: '',
+                        projectDescription: '',
                         repoURL : '',
                         repoType : '',
                         features : [
                             'includeBootstrap'
                         ],
-                        stylessheetlanguage : 'less'
+                        stylesSheetLanguage : 'less'
                     }
                 )
                 .on('end', done);

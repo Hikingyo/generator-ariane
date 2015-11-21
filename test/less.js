@@ -14,12 +14,12 @@ describe('Less feature', function () {
                 .withOptions({'skip-install': true})
                 .withPrompts({
                     username: '',
-                    projectname: '',
-                    projectdescription: '',
+                    projectName: '',
+                    projectDescription: '',
                     repoURL : 'https://github.com/taptapship/wiredep.git',
                     repoType : '',
                     features: [],
-                    stylessheetlanguage : 'less'
+                    stylesSheetLanguage : 'less'
                 })
                 .on('end', done);
         });
@@ -36,12 +36,12 @@ describe('Less feature', function () {
                 .withOptions({'skip-install': true})
                 .withPrompts({
                     username: '',
-                    projectname: '',
-                    projectdescription: '',
+                    projectName: '',
+                    projectDescription: '',
                     repoURL : 'https://github.com/taptapship/wiredep.git',
                     repoType : '',
                     features: [],
-                    stylessheetlanguage : 'css'
+                    stylesSheetLanguage : 'css'
                 })
                 .on('end', done);
         });

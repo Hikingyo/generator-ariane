@@ -6,7 +6,7 @@
   "main": "app/index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Hikingyo/generator-cionfire"
+    "url": "git://github.com/Hikingyo/generator-cionfire"
   },
   "author": {
     "name": "Hikingyo",

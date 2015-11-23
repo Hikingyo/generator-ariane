@@ -1,4 +1,4 @@
-# Generator Cionfire [![Build Status](https://secure.travis-ci.org/Hikingyo/generator-cionfire.png?branch=master)](https://travis-ci.org/hikingyo/generator-cionfire)
+# Generator Cionfire [![Build Status](https://secure.travis-ci.org/Hikingyo/generator-cionfire.png?branch=master)](https://travis-ci.org/hikingyo/generator-cionfire) [![Dependency Status](https://david-dm.org/hikingyo/generator-cionfire.svg)](https://david-dm.org/hikingyo/generator-cionfire)
 
 
 ## About
@@ -18,7 +18,7 @@ Special thanks to the teams of HTML5 Boilerplate, Yeoman, Gulp, Grunt, Bower, Br
 * A HMTL boilerplate (based on the critically acclaimed [HTML5 Boilerplate](https://github.com/h5bp/html5-boilerplate))
 * CSS autoprefixing & minifying
 * Choose between [Sass](http://sass-lang.com/), [Less](http://lesscss.org/) or CSS for your stylesheets
-* [Bootstrap](http://getbootstrap.com/) & [Foundation](http://foundation.zurb.com/) support
+* [Bootstrap](http://getbootstrap.com/) support (and [Foundation 6](http://foundation.zurb.com/) coming soon)
 * Map compiled CSS to source stylesheets with source maps
 * Lint & uglify your scripts
 * Built-in preview server with [Browsersync](http://www.browsersync.io/)
@@ -32,7 +32,7 @@ Special thanks to the teams of HTML5 Boilerplate, Yeoman, Gulp, Grunt, Bower, Br
 
 ## libsass
 
-Keep in mind that libsass is feature-wise not fully compatible with Ruby Sass. Check out [this](http://sass-compatibility.github.io) curated list of incompatibilities to find out which features are missing.
+You should know that all Ruby Sass' features are not implemented by libass. Check out [this](http://sass-compatibility.github.io) to find out which features are missing.
 
 If your favorite feature is missing and you really need Ruby Sass, you can always switch to [gulp-ruby-sass](https://github.com/sindresorhus/gulp-ruby-sass) and update the `styles` task in gulpfile accordingly.
 
@@ -50,7 +50,7 @@ If your favorite feature is missing and you really need Ruby Sass, you can alway
 - Run `gulp` to build your web app for production
 - Run `gulp serve:dist` to preview the production build
 
-### With grunt
+### With grunt (coming soon)
 
 - Install yeoman : `npm install -g yo grunt bower`
 - Install the generator: `npm install -g generator-cionfire`
@@ -64,9 +64,6 @@ If your favorite feature is missing and you really need Ruby Sass, you can alway
 ## Docs
 
 * [Getting started](docs/README.md) with this generator
-* [Recipes](docs/recipes/README.md) for integrating other popular technologies like CoffeeScript
-* [Details](docs/bower.md) about our Bower setup
-
 
 ## Options
 

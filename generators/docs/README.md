@@ -1,5 +1,5 @@
 # Getting Started
- 
+
 
 If you haven't already, install [yo] and this generator by running:
 
@@ -27,7 +27,7 @@ To start developing , run:
 $ gulp serve
 ```
 
-This will fire up a local web server, open http://localhost:9000 in your default browser and watch files for changes, reloading the browser automatically via [LiveReload].
+This will fire up a local web server, open http://localhost:3000 in your default browser and watch files for changes, reloading the browser automatically via [Browsersync].
 
 To run the tests in the browser, run:
 
@@ -61,14 +61,14 @@ As you might have noticed, gulp plugins (the ones that begin with `gulp-`) don't
 
 ### Serve
 
-We use the `.tmp` directory mostly for compiling assets like SCSS files. It has precedence over `app`, so if you had an `app/index.html` template compiling to `.tmp/index.html`, http://localhost:9000 would point to `.tmp/index.html`, which is what we want.
+We use the `.tmp` directory mostly for compiling assets like SCSS files. It has precedence over `app`, so if you had an `app/index.html` template compiling to `.tmp/index.html`, http://localhost:3000 would point to `.tmp/index.html`, which is what we want.
 
 This system can be a little confusing with the `watch` task, but it's actually pretty simple:
 
-* notify LiveReload when compiled assets change
+* notify Browsersync when compiled assets change
 * run the compile task when source assets change
 
-E.g. if you have Less files, you would want to notify LiveReload when Less files have compiled, i.e. when `.tmp/styles/**/*.css` change, but you would want to compile Less files by running the `styles` task when source files change, i.e. `app/styles/**/*.less`.
+E.g. if you have Less files, you would want to notify Browsersync when Less files have compiled, i.e. when `.tmp/styles/**/*.css` change, but you would want to compile Less files by running the `styles` task when source files change, i.e. `app/styles/**/*.less`.
 
 ## Bower
 
@@ -96,7 +96,7 @@ If there's a problem, it's usually with the `main` field, which wiredep uses to 
 [gulp]:       https://github.com/gulpjs/gulp
 [gulp-docs]:  https://github.com/gulpjs/gulp/blob/master/docs/README.md
 [yo]:         https://github.com/yeoman/yo
-[LiveReload]: https://github.com/intesso/connect-livereload
+[Browsersync]: https://github.com/Browsersync/browser-sync
 [plugins]:    https://github.com/jackfranklin/gulp-load-plugins
 [calc]:       https://github.com/postcss/postcss-calc
 [wiredep]:    https://github.com/taptapship/wiredep

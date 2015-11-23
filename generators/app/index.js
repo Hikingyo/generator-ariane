@@ -318,6 +318,8 @@ module.exports = yeoman.generators.Base.extend({
 				this.destinationPath('app/index.html'), {
 					projectName: this.projectName,
 					includeSass: this.includeSass,
+					includeLess: this.includeLess,
+					includeJQuery: this.includeJQuery,
 					includeBootstrap: this.includeBootstrap,
 					includeModernizr: this.includeModernizr,
 					bsPath: bsPath,

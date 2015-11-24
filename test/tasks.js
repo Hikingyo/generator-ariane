@@ -66,7 +66,7 @@ describe('grunt tasks', function () {
             "grunt-contrib-copy",
             "grunt-contrib-cssmin",
             "grunt-contrib-htmlmin",
-            "grunt-contrib-mocha",
+            "grunt-mocha",
             "grunt-contrib-uglify",
             "grunt-contrib-watch",
             "grunt-eslint",

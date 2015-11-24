@@ -37,7 +37,7 @@ gulp.task('html', ['styles'], function() {
 gulp.task('styles', function() {<% if (includeCss) { %>
 	return gulp.src('app/styles/*.css')
 		.pipe($.plumber())
-        .pipe($.sourceMaps.init())<% } %><% if (includeLess) { %>
+        <% } %><% if (includeLess) { %>
 	return gulp.src('app/styles/*.less')
 		.pipe($.plumber())
 		.pipe($.sourcemaps.init())

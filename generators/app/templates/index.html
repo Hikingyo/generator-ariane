@@ -1,5 +1,5 @@
 <!doctype html>
-<html><% if (includeModernizr) { %> class="no-js"<% } %> lang="">
+<html <% if (includeModernizr) { %> class="no-js"<% } %> lang="">
   <head>
     <meta charset="utf-8">
     <title><%= projectName %></title>
@@ -18,6 +18,10 @@
     <!-- build:js scripts/vendor/modernizr.js -->
     <script src="/bower_components/modernizr/modernizr.js"></script>
     <!-- endbuild --><% } %>
+
+    <!-- Font we use for the default template-->
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+
   </head>
   <body>
     <!--[if lt IE 10]>
@@ -36,8 +40,8 @@
       </div>
 
       <div class="jumbotron">
-        <h1>'Allo, 'Allo!</h1>
-        <p class="lead">Always a pleasure scaffolding your apps.</p>
+        <h1>Congratulation!</h1>
+        <p class="lead">You just scaffolded your app with the awesomely awesome Cionfire</p>
         <p><a class="btn btn-lg btn-success" href="#">Splendid!</a></p>
       </div>
 
@@ -47,7 +51,11 @@
           <p>HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.</p>
 
           <% if (includeSass) { %><h4><a href="http://libsass.org/">Sass</a></h4>
-          <p>Sass is a mature, stable, and powerful professional grade CSS extension language.</p>
+          <p>Sass is a CSS pre-processor, which extends CSS with dynamic behavior such as variables, mixins, operations and functions. So powerfull.</p>
+          <% } %>
+
+          <% if (includeLess) { %><h4><a href="http://lesscss.org/">Less</a></h4>
+          <p>Less is a CSS pre-processor, which extends CSS with dynamic behavior such as variables, mixins, operations and functions. So powerfull.</p>
           <% } %>
 
           <h4><a href="http://getbootstrap.com/">Bootstrap</a></h4>
@@ -60,16 +68,19 @@
       </div>
 
       <div class="footer">
-        <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
+        <p><span class="glyphicon glyphicon-heart"></span> from the Cionfire team</p>
       </div>
     </div>
     <% } else { %>
-    <div class="hero-unit">
-      <h1>'Allo, 'Allo!</h1>
-      <p>You now have</p>
+
+    <div class="card">
+      <h1>Congratulation!</h1>
+      <p>You just scaffolded your app with the awesomely awesome Cionfire. Let's see what you have :</p>
       <ul>
         <li><a href="https://html5boilerplate.com/">HTML5 Boilerplate</a></li><% if (includeSass) { %>
-        <li><a href="http://libsass.org/">Sass</a></li><% } if (includeModernizr) { %>
+        <li><a href="http://libsass.org/">Sass</a></li><% } if (includeLess) { %>
+        <li><a href="http://lesscss.org/">Less</a></li><% } if (includeModernizr) { %>
+        <li><a href="http://jquery.com/">jQuery</a></li><% } if (includeJQuery) { %>
         <li><a href="http://modernizr.com/">Modernizr</a></li><% } %>
       </ul>
     </div>

@@ -99,7 +99,10 @@ module.exports = yeoman.generators.Base.extend({
                 type: 'input',
                 name: 'repoType',
                 message: 'Type of the repository (eg. git, hg ...)',
-                default: 'git'
+                default: '',
+                when : function(answers) {
+                    return answers.repoURL != '';
+                }
             },
 
 			{
@@ -131,7 +134,7 @@ module.exports = yeoman.generators.Base.extend({
 				}, {
 					name: 'SASS',
 					value: 'sass',
-				}, ]
+				} ]
 			},
 
 			{
@@ -142,7 +145,21 @@ module.exports = yeoman.generators.Base.extend({
 				when: function(answers) {
 					return answers.features.indexOf('includeBootstrap') === -1;
 				}
-			}
+			},
+
+            {
+                type : 'list',
+                name : 'taskRunner',
+                message : 'Which tasks runner do you want to use',
+                default : 'gulp',
+                choices: [{
+                    name : 'Gulp',
+                    value: 'gulp'
+                }, {
+                    name : 'Grunt',
+                    value : 'grunt'
+                }]
+            }
 		];
 
 		this.prompt(prompts, function(answers) {
@@ -164,6 +181,8 @@ module.exports = yeoman.generators.Base.extend({
             this.includeLess = answers.stylesSheetLanguage == 'less';
             this.includeSass = answers.stylesSheetLanguage == 'sass';
             this.includeCss = answers.stylesSheetLanguage == 'css';
+            this.useGulp = answers.taskRunner == 'gulp';
+            this.useGrunt = answers.taskRunner == 'grunt';
 
 			done();
 		}.bind(this));
@@ -171,16 +190,28 @@ module.exports = yeoman.generators.Base.extend({
 
 	writing: {
 
-		gulpfile: function() {
+		tasksRunner: function() {
+            var tplPath;
+            var destPath;
+            if(this.useGulp){
+                tplPath = '_gulpfile.js';
+                destPath = 'gulpfile.js';
+            }
+            if(this.useGrunt){
+                tplPath = '_Gruntfile.js';
+                destPath = 'Gruntfile.js';
+            }
 			this.fs.copyTpl(
-				this.templatePath('_gulpfile.js'),
-				this.destinationPath('gulpfile.js'), {
+				this.templatePath(tplPath),
+				this.destinationPath(destPath), {
 					pkg: this.pkg,
 					includeLess: this.includeLess,
 					includeSass: this.includeSass,
 					includeCss: this.includeCss,
 					includeBootstrap: this.includeBootstrap,
-                    testFramework: this.options['test-framework']
+                    testFramework: this.options['test-framework'],
+                    useBabel : this.useBabel,
+                    includeModernizr : this.includeModernizr
 				}
 			);
 		},
@@ -191,13 +222,17 @@ module.exports = yeoman.generators.Base.extend({
 				this.destinationPath('package.json'), {
 					includeLess: this.includeLess,
 					includeSass: this.includeSass,
+                    includeJQuery : this.includeJQuery,
 					username: this.username,
 					projectName: this.projectName,
 					projectDescription: this.projectDescription,
                     repoURL: this.repoURL,
                     repoType : this.repoType,
 					testFramework: this.options['test-framework'],
-					useBabel: this.options['babel']
+					useBabel: this.options['babel'],
+                    useGulp : this.useGulp,
+                    useGrunt : this.useGrunt,
+                    includeModernizr : this.includeModernizr
 				}
 			);
 		},
@@ -353,7 +388,9 @@ module.exports = yeoman.generators.Base.extend({
 			this.fs.copyTpl(
 				this.templatePath('styles/' + type + '/' + styleSheet + '.' + type),
 				this.destinationPath('app/styles/' + styleSheet + '.' + type), {
-					includeBootstrap: this.includeBootstrap
+					includeBootstrap: this.includeBootstrap,
+                    useGulp : this.useGulp,
+                    useGrunt : this.useGrunt
 				}
 			);
 		},

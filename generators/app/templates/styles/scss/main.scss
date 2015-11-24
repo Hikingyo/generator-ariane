@@ -6,8 +6,6 @@
  * Kroc Camen, and the H5BP dev community and team.
  */
 
- //bower:scss
- //endbower
 
 /* ==========================================================================
    Base styles: opinionated defaults
@@ -98,7 +96,7 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
-<% if (includeBootstrap) { %>$icon-font-path: '../fonts/'; <% } %>
+<% if (includeBootstrap) { if(useGulp){ %>$icon-font-path: '../fonts/'; <%}if(useGrunt){%>$icon-font-path: '../bower_components/bootstrap-sass/assets/fonts/bootstrap/'; <%} } %>
 // bower:scss
 //endbower
 

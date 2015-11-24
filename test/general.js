@@ -22,10 +22,10 @@ describe('general', function () {
                         username: '',
                         projectName: '',
                         projectDescription: '',
-                        repoURL : 'git://github.com/taptapship/wiredep.git',
-                        repoType : '',
+                        repoURL: 'git://github.com/taptapship/wiredep.git',
+                        repoType: 'git',
                         features: [],
-                        stylesSheetLanguage : ''
+                        stylesSheetLanguage: ''
                     })
                 .on('end', done);
         });
@@ -42,19 +42,23 @@ describe('general', function () {
             assert.fileContent('package.json', 'A sample project.')
         });
 
-        it('default project repository type', function(){
-            assert.fileContent('package.json', 'git');
+        it('test project repository type', function () {
+            assert.fileContent('package.json', '');
         });
 
-        it('test repo URL', function(){
+        it('test repo URL', function () {
             assert.fileContent('package.json', /([--:\w?@%&+~#=]*\.[a-z]{2,4}\/{0,2})((?:[?&](?:\w+)=(?:\w+))+|[--:\w?@%&+~#=]+)?/g);
+        });
+
+        it('should create gulpfile.js', function () {
+            assert.file('gulpfile.js');
         });
 
     });
 
     describe('copying files', function () {
         before(function (done) {
-            helpers.run(path.join(__dirname,appPath))
+            helpers.run(path.join(__dirname, appPath))
                 .inDir(testPath)
                 .withOptions({skipInstall: true})
                 .withPrompts(
@@ -62,8 +66,7 @@ describe('general', function () {
                         username: '',
                         projectName: '',
                         projectDescription: '',
-                        repoURL : 'http://my_test_repo.git',
-                        repoType : '',
+                        repoURL: '',
                         features: []
                     })
                 .on('end', done);
@@ -73,7 +76,6 @@ describe('general', function () {
             assert.file([
                 'bower.json',
                 'package.json',
-                'gulpfile.js',
                 '.editorconfig',
                 '.gitignore',
                 '.jshintrc',

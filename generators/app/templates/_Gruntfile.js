@@ -58,7 +58,11 @@ module.exports = function (grunt) {
         sass: {
             files: ['<%%= config.app %>/styles/{,*/}*.{scss,sass}'],
                 tasks: ['sass', 'postcss']
-        },<% } %>
+        },<% } if(includeLess){%>
+        less: {
+            files: ['<%%= config.app %>/styles/{,*/}*.less'],
+                tasks: ['less', 'postcss']
+        },<%}%>
     styles: {
         files: ['<%%= config.app %>/styles/{,*/}*.css'],
             tasks: ['newer:copy:styles', 'postcss']
@@ -266,7 +270,7 @@ module.exports = function (grunt) {
             sass: {
                 src: ['<%%= config.app %>/styles/{,*/}*.{scss,sass}'],
                     ignorePath: /^(\.\.\/)+/
-            }<% } if(includeLess) { %>
+            }<% } if(includeLess) { %>,
             less: {
                 src: ['<%%= config.app %>/styles/{,*/}*.less'],
                     ignorePath: /^(\.\.\/)+/
@@ -441,7 +445,7 @@ module.exports = function (grunt) {
     concurrent: {
         server: [<% if (useBabel) { %>
             'babel:dist',<% } %><% if (includeSass) { %>
-            'sass'<% } else { %>
+            'sass'<% } else if(includeLess){%>'less'<%}else{ %>
             'copy:styles'<% } %>
     ],
         test: [<% if (useBabel) { %>
@@ -450,7 +454,7 @@ module.exports = function (grunt) {
     ],
         dist: [<% if (useBabel) { %>
             'babel',<% } %><% if (includeSass) { %>
-            'sass',<% } else { %>
+            'sass',<% } else if(includeLess){%>'less',<% } else { %>
             'copy:styles',<% } %>
         'imagemin',
             'svgmin'

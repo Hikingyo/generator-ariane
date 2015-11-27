@@ -357,6 +357,8 @@ module.exports = yeoman.generators.Base.extend({
 					includeJQuery: this.includeJQuery,
 					includeBootstrap: this.includeBootstrap,
 					includeModernizr: this.includeModernizr,
+                    useGulp : this.useGulp,
+                    useGrunt : this.useGrunt,
 					bsPath: bsPath,
 					bsPlugins: [
 						'affix',

@@ -223,7 +223,7 @@ module.exports = function (grunt) {
             options : {
                 sourceMap : true,
                 sourceMapFileInline :true,
-                outSourceFiles : true,
+                outputSourceFiles : true,
                 paths : ['.']
 
             },

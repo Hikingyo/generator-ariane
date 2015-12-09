@@ -1,7 +1,6 @@
 {
-    "private" : false,
-  "name": "generator-rocket",
-  "version": "0.0.9",
+  "name": "generator-cionfire",
+  "version": "0.1.0",
   "description": "Yeoman generator",
   "license": "MIT",
   "main": "app/index.js",
@@ -10,8 +9,8 @@
     "url": "git://github.com/Hikingyo/generator-cionfire"
   },
   "author": {
-    "name": "hikingyo",
-    "email": "hikingyo@outlook.com",
+    "name": "Hikingyo",
+    "email": "hikingyo@github.com",
     "url": "https://github.com/Hikingyo"
   },
   "contributors": [

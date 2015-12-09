@@ -84,4 +84,4 @@ See the [contributing docs](contributing.md).
 
 ## License
 
-[BSD license](http://opensource.org/licenses/bsd-license.php)
+[MIT license](https://opensource.org/licenses/MIT)

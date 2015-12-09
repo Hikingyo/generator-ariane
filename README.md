@@ -1,4 +1,4 @@
-# Generator Cionfire [![Build Status](https://secure.travis-ci.org/Hikingyo/generator-cionfire.png?branch=master)](https://travis-ci.org/hikingyo/generator-cionfire) [![Dependency Status](https://david-dm.org/hikingyo/generator-cionfire.svg)](https://david-dm.org/hikingyo/generator-cionfire)
+# Generator Ariane [![Build Status](https://secure.travis-ci.org/Hikingyo/generator-cionfire.png?branch=master)](https://travis-ci.org/hikingyo/generator-cionfire) [![Dependency Status](https://david-dm.org/hikingyo/generator-ariane.svg)](https://david-dm.org/hikingyo/generator-ariane)
 
 
 ## About
@@ -42,8 +42,8 @@ If your favorite feature is missing and you really need Ruby Sass, you can alway
 ### With gulp
 
 - Install yeoman : `npm install -g yo gulp bower`
-- Install the generator: `npm install -g generator-cionfire`
-- Run `yo cionfire` to scaffold your web app
+- Install the generator: `npm install -g generator-ariane`
+- Run `yo ariane` to scaffold your web app
 - Run `gulp serve` to preview and watch for changes
 - Run `bower install --save <package>` to install front-end dependencies
 - Run `gulp serve:test` to run the tests in the browser
@@ -53,8 +53,8 @@ If your favorite feature is missing and you really need Ruby Sass, you can alway
 ### With grunt (coming soon)
 
 - Install yeoman : `npm install -g yo grunt bower`
-- Install the generator: `npm install -g generator-cionfire`
-- Run `yo cionfire` to scaffold your web app
+- Install the generator: `npm install -g generator-ariane`
+- Run `yo ariane` to scaffold your web app
 - Run `grunt serve` to preview and watch for changes
 - Run `bower install --save <package>` to install front-end dependencies
 - Run `grunt serve:test` to run the tests in the browser

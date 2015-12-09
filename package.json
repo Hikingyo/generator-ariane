@@ -1,12 +1,12 @@
 {
-  "name": "generator-rocket",
+  "name": "generator-ariane",
   "version": "0.1.0",
   "description": "Yeoman generator",
   "license": "MIT",
   "main": "app/index.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/Hikingyo/generator-rocket"
+    "url": "git://github.com/Hikingyo/generator-ariane"
   },
   "author": {
     "name": "Hikingyo",

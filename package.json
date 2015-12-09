@@ -1,12 +1,12 @@
 {
-  "name": "generator-cionfire",
+  "name": "generator-rocket",
   "version": "0.1.0",
   "description": "Yeoman generator",
   "license": "MIT",
   "main": "app/index.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/Hikingyo/generator-cionfire"
+    "url": "git://github.com/Hikingyo/generator-rocket"
   },
   "author": {
     "name": "Hikingyo",

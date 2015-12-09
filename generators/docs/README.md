@@ -4,7 +4,7 @@
 If you haven't already, install [yo] and this generator by running:
 
 ```sh
-$ npm install --global yo generator-cionfire
+$ npm install --global yo generator-ariane
 ```
 
 Ensure that you have install tasks runner (eg. `npm install -g gulp`)
@@ -14,7 +14,7 @@ Now you can scaffold your very own web app:
 ```sh
 $ mkdir my-webapp
 $ cd my-webapp
-$ yo cionfire
+$ yo ariane
 ```
 
 ## With gulp

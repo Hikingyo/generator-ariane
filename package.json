@@ -20,8 +20,14 @@
       "url": "https://github.com/mlcdf"
     }
   ],
+    "config": {
+        "blanket": {
+            "pattern": [ "" ],
+            "data-cover-never": [ "node_modules", "tests" ]
+        }
+    },
   "scripts": {
-    "test": "mocha --reporter spec --timeout 3000"
+      "test": "mocha --reporter spec --timeout 3000"
   },
   "files": [
     "generators"
@@ -50,6 +56,10 @@
     "yosay": "^1.1.0"
   },
   "devDependencies": {
-    "mocha": "*"
+    "blanket": "^1.2.1",
+    "coveralls": "^2.11.4",
+    "istanbul": "^0.4.1",
+    "mocha": "*",
+    "mocha-lcov-reporter": "^1.0.0"
   }
 }

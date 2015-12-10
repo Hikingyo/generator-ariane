@@ -22,8 +22,7 @@
   ],
     "config": {
         "blanket": {
-            "pattern": [ "**/test*" ],
-            "data-cover-never": [ "node_modules"]
+            "pattern": "generators"
         }
     },
   "scripts": {

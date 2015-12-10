@@ -1,4 +1,4 @@
-# Generator Ariane [![Build Status](https://secure.travis-ci.org/Hikingyo/generator-cionfire.png?branch=master)](https://travis-ci.org/hikingyo/generator-cionfire) [![Dependency Status](https://david-dm.org/hikingyo/generator-ariane.svg)](https://david-dm.org/hikingyo/generator-ariane)
+# Generator Ariane [![Build Status](https://secure.travis-ci.org/Hikingyo/generator-ariane.png?branch=master)](https://travis-ci.org/hikingyo/generator-ariane) [![Dependency Status](https://david-dm.org/hikingyo/generator-ariane.svg)](https://david-dm.org/hikingyo/generator-ariane)
 
 
 ## About

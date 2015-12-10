@@ -22,8 +22,8 @@
   ],
     "config": {
         "blanket": {
-            "pattern": [ "./generator/app" ],
-            "data-cover-never": [ "node_modules", "test" ]
+            "pattern": [ "**/test*" ],
+            "data-cover-never": [ "node_modules"]
         }
     },
   "scripts": {

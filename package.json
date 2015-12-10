@@ -20,14 +20,9 @@
       "url": "https://github.com/mlcdf"
     }
   ],
-    "config": {
-        "blanket": {
-            "pattern": "generators"
-        }
-    },
   "scripts": {
-      "test": "mocha --reporter spec --timeout 3000",
-      "coverage" : "NODE_ENV=test COVERAGE=1 ./node_modules/.bin/mocha --require blanket --reporter mocha-lcov-reporter | ./node_modules/coveralls/bin/coveralls.js"
+    "test": "mocha --reporter spec --timeout 3000",
+    "coverage": "istanbul cover ./node_modules/.bin/_mocha --report lcovonly -- --reporter spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
   },
   "files": [
     "generators"
@@ -56,10 +51,8 @@
     "yosay": "^1.1.0"
   },
   "devDependencies": {
-    "blanket": "^1.2.1",
-    "coveralls": "^2.11.4",
+    "coveralls": "^2.11.5",
     "istanbul": "^0.4.1",
-    "mocha": "*",
-    "mocha-lcov-reporter": "^1.0.0"
+    "mocha": "*"
   }
 }

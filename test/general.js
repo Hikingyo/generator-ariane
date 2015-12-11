@@ -3,7 +3,7 @@
 var path = require('path');
 var assert = require('yeoman-assert');
 var helpers = require('yeoman-generator').test;
-var testPath = '../cionfire_test';
+var testPath = '../ariane_test';
 var appPath = '../generators/app';
 
 describe('general', function () {
@@ -35,7 +35,7 @@ describe('general', function () {
         });
 
         it('default projectName', function () {
-            assert.fileContent('package.json', 'CiOnFire');
+            assert.fileContent('package.json', 'ariane');
         });
 
         it('default project description', function () {

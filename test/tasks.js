@@ -2,7 +2,7 @@
 var path = require('path');
 var assert = require('yeoman-assert');
 var helpers = require('yeoman-generator').test;
-var testPath = '../cionfire_test';
+var testPath = '../ariane_test';
 var appPath = '../generators/app';
 
 describe('gulp tasks', function () {

@@ -63,7 +63,7 @@ module.exports = yeoman.generators.Base.extend({
 		// Have Yeoman greet the user.
 		if (!this.options['skip-install-message']) {
 			this.log(yosay(
-				'Welcome to the amazing ' + chalk.red('Cionfire') + ' generator!'
+				'Welcome to the amazing ' + chalk.red('Ariane') + ' generator!'
 			));
 		}
 
@@ -78,7 +78,7 @@ module.exports = yeoman.generators.Base.extend({
 				type: 'input',
 				name: 'projectName',
 				message: 'What\'s your project name',
-				default: 'CiOnFire'
+				default: 'ariane'
 			},
 
 			{

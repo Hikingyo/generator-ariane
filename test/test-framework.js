@@ -3,7 +3,7 @@
 var path = require('path');
 var helpers = require('yeoman-generator').test;
 var assert = require('yeoman-assert');
-var testPath = '../cionfire_test';
+var testPath = '../ariane_test';
 var appPath = '../generators/app';
 
 describe('test framework', function () {

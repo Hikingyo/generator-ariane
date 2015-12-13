@@ -1,5 +1,5 @@
 # Generator Ariane [![Build Status](https://secure.travis-ci.org/Hikingyo/generator-ariane.png?branch=master)](https://travis-ci.org/hikingyo/generator-ariane) [![Dependency Status](https://david-dm.org/hikingyo/generator-ariane.svg)](https://david-dm.org/hikingyo/generator-ariane)[![Coverage Status](https://coveralls.io/repos/Hikingyo/generator-ariane/badge.svg?branch=master&service=github)](https://coveralls.io/github/Hikingyo/generator-ariane?branch=master)
-
+![Ariane Generator] (/img/logo-ariane.png)
 
 ## About
 

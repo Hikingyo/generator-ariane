@@ -86,8 +86,9 @@ describe('general', function () {
                 'app/humans.txt',
                 'app/robots.txt',
                 'app/favicon.ico',
-                'app/tile-wide.png',
-                'app/tile.png',
+                'app/largetile.png',
+                'app/smalltile.png',
+                'app/mediumtile.png',
                 'app/apple-touch-icon.png',
                 'app/browserconfig.xml',
                 'app/crossdomain.xml'

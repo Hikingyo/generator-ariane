@@ -292,13 +292,17 @@ module.exports = yeoman.generators.Base.extend({
 				this.destinationPath('app/apple-touch-icon.png')
 			);
 			this.fs.copy(
-				this.templatePath('tile.png'),
-				this.destinationPath('app/tile.png')
+				this.templatePath('largetile.png'),
+				this.destinationPath('app/largetile.png')
 			);
 			this.fs.copy(
-				this.templatePath('tile-wide.png'),
-				this.destinationPath('app/tile-wide.png')
+				this.templatePath('smalltile.png'),
+				this.destinationPath('app/smalltile.png')
 			);
+            this.fs.copy(
+                this.templatePath('mediumtile.png'),
+                this.destinationPath('app/mediumtile.png')
+            );
 		},
 
 		html: function() {

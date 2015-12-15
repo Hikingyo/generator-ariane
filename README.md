@@ -1,5 +1,6 @@
-# Generator Ariane [![Build Status](https://secure.travis-ci.org/Hikingyo/generator-ariane.png?branch=master)](https://travis-ci.org/hikingyo/generator-ariane) [![Dependency Status](https://david-dm.org/hikingyo/generator-ariane.svg)](https://david-dm.org/hikingyo/generator-ariane)[![Coverage Status](https://coveralls.io/repos/Hikingyo/generator-ariane/badge.svg?branch=master&service=github)](https://coveralls.io/github/Hikingyo/generator-ariane?branch=master)
 ![Ariane Generator] (/img/logo-ariane.png)
+# Generator Ariane [![Build Status](https://secure.travis-ci.org/Hikingyo/generator-ariane.png?branch=master)]
+(https://travis-ci.org/hikingyo/generator-ariane) [![Dependency Status](https://david-dm.org/hikingyo/generator-ariane.svg)](https://david-dm.org/hikingyo/generator-ariane) [![Coverage Status](https://coveralls.io/repos/Hikingyo/generator-ariane/badge.svg?branch=master&service=github)](https://coveralls.io/github/Hikingyo/generator-ariane?branch=master)
 
 ## About
 
@@ -10,7 +11,10 @@ other tools.
 So, with this generator, we offer the ability to deploy quickly and in a jiffy a development
 environment from the more simplest to the most complete.
 
-Special thanks to the teams of HTML5 Boilerplate, Yeoman, Gulp, Grunt, Bower, Browsersync and to the creators of all the Node.js modules we use.
+Special thanks to Lineess for our beautiful logo, the teams of HTML5 Boilerplate, Yeoman, Gulp, Grunt, Bower, 
+Browsersync and to the creators of
+ all
+ the Node.js modules we use.
 
 
 ## Features

@@ -76,7 +76,7 @@ describe('general', function () {
                 'gulpfile.js',
                 '.editorconfig',
                 '.gitignore',
-                '.jshintrc',
+                '.eslintrc',
                 '.bowerrc'
             ]);
         });

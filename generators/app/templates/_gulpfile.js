@@ -101,10 +101,11 @@ gulp.task('serve', ['styles', 'fonts'], function() {
         'app/*.html',
         'app/scripts/**/*.js',
         'app/images/**/*',
-        '.tmp/fonts/**/*'
+        '.tmp/fonts/**/*',
+        '.tmp/stlyes/**.*.css'
     ]).on('change', reload);
 
-    gulp.watch('app/styles/**/*.*', ['styles']).on('change', reload);
+    gulp.watch('app/styles/**/*.*', ['styles']);
     gulp.watch('app/fonts/**/*', ['fonts']);
     gulp.watch('bower.json', ['wiredep', 'fonts']);
 });

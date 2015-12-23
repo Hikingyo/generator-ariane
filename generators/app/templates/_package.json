@@ -5,7 +5,7 @@
   "main": "index.html",
   "man" : ["docs/README.md"],
   "scripts": {
-    "dev" : "gulp watch"
+    "dev" : "gulp serve"
   },
   "author": "<%= username %>",
   "license": "UNLICENSED", "repository": {

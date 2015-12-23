@@ -89,8 +89,8 @@ gulp.task('fonts', function () {
 // serve
 gulp.task('serve', ['styles', 'fonts'], function() {
 	browserSync.init({
+		port: 9000,
 		server: {
-			port: 9000,
 			baseDir: ['.tmp', 'app'],
 	        routes: {
                 '/bower_components': 'bower_components'

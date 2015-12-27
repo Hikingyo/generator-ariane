@@ -10,7 +10,7 @@ other tools.
 So, with this generator, we offer the ability to deploy quickly and in a jiffy a development
 environment from the more simplest to the most complete.
 
-Special thanks to Lineess for our beautiful logo, the teams of HTML5 Boilerplate, Yeoman, Gulp, Grunt, Bower, 
+Special thanks to Lineess for our beautiful logo, the teams of HTML5 Boilerplate, Yeoman, Gulp, Grunt, Bower,
 Browsersync and to the creators of
  all
  the Node.js modules we use.
@@ -82,9 +82,9 @@ If your favorite feature is missing and you really need Ruby Sass, you can alway
 
 ## Contribute
 
-See the [contributing docs](contributing.md).
+// TO DO CONTRIBUTING.md
 
 
 ## License
 
-[MIT license](https://opensource.org/licenses/MIT)
+[MIT](LICENSE)

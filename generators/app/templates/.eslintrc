@@ -1,20 +1,20 @@
 {
-    "node": true,
-    "esnext": true,
-    "bitwise": true,
-    "camelcase": true,
-    "curly": true,
-    "eqeqeq": true,
-    "immed": true,
-    "indent": 2,
-    "latedef": true,
-    "newcap": true,
-    "noarg": true,
-    "quotmark": "single",
-    "undef": true,
-    "unused": true,
-    "strict": true,
-    "env": {
-        "browser": true
+    "rules": {
+        "camelcase": 1,
+        "curly": 1,
+        "default-case": 2,
+        "dot-location": 1,
+        "dot-notation": 1,
+        "eqeqeq": 1,
+        "indent": 4,
+        "no-undef": 2,
+        "no-unused-vars": 1,
+        "no-use-before-define": 2,
+        "strict": [2, "global"],
+        "valid-typeof": 2
+    },
+    "env" : {
+        "browser": true,
+        "node": true
     }
 }

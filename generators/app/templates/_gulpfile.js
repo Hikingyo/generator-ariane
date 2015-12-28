@@ -15,17 +15,13 @@ var pngquant = require('imagemin-pngquant');
 // HTML task
 gulp.task('html', ['styles'], function() {
 
-	var assets = $.useref.assets({
-		searchPath: ['.tmp', 'app', '.']
-	});
 	return gulp.src('app/*.html')
-	.pipe(assets)
+	    .pipe(useref({
+            searchPath: ['.tmp', 'app', '.']
+        }))
 		.pipe($.if('*.js', $.uglify()))
 		.pipe($.if('*.css', $.minifyCss({
 			compatibility: '*'
-		})))
-		.pipe(assets.restore())
-		.pipe($.useref())
 		.pipe($.if('*.html', $.minifyHtml({
 			conditionals: true,
 			loose: true
@@ -202,7 +198,8 @@ function lint(files, opt){
 var testLintOptions = {
     env : {<% if(testFramework === 'mocha') { %>
         mocha: true<% }else if (testFramework === 'jasmine') { %>
-        jasmine : true<%} %>
+        jasmine : true<%} %>,
+        browser: true
     }
 };
 

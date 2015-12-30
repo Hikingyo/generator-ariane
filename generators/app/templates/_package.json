@@ -13,8 +13,9 @@
     "url": "<%= repoURL %>"
   },
   "devDependencies": {
-    "del": "^2.0.2",
-    "gulp": "^3.9.0",<% if (useBabel) { %>
+      "require-dir": "^0.3.0",
+      "del": "^2.0.2",
+      "gulp": "^3.9.0",<% if (useBabel) { %>
     "gulp-babel" : "^6.1.0",<% } %>
     "gulp-if": "^2.0.0",
     "gulp-imagemin": "^2.3.0",<% if (includeSass) { %>
@@ -37,8 +38,8 @@
     "gulp-cache": "^0.2.8",
     "gulp-eslint": "^0.13.2",
     "gulp-size": "^1.2.1"
-  },
-  "engines" : {
+    },
+    "engines" : {
     "node" : ">=0.12.0"
-  }
+    }
 }

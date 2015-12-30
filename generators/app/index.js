@@ -1,6 +1,6 @@
 'use strict';
 
-var yeoman = require('yeoman-generator');
+var yeoman = require('yeoman-generator').Base;
 var chalk = require('chalk');
 var yosay = require('yosay');
 var _s = require('underscore.string');
@@ -8,13 +8,13 @@ var mkdirp = require('mkdirp');
 var wiredep = require('wiredep');
 
 
-module.exports = yeoman.generators.Base.extend({
+module.exports = yeoman.extend({
 
 	constructor: function() {
 
 		var testLocal;
 
-		yeoman.Base.apply(this, arguments);
+		yeoman.apply(this, arguments);
 
 		this.option('skip-welcome-message', {
 			desc: 'Skip the welcome message',
@@ -171,11 +171,11 @@ module.exports = yeoman.generators.Base.extend({
 
 	writing: {
 
-		gulpfile: function() {
+		gulp: function() {
 			this.fs.copyTpl(
-				this.templatePath('_gulpfile.js'),
-				this.destinationPath('gulpfile.js'), {
-					pkg: this.pkg,
+				this.templatePath('gulp/config.js'),
+				this.destinationPath('gulp/config.js'),
+				{
 					includeLess: this.includeLess,
 					includeSass: this.includeSass,
 					includeCss: this.includeCss,
@@ -183,12 +183,35 @@ module.exports = yeoman.generators.Base.extend({
                     testFramework: this.options['test-framework']
 				}
 			);
+			this.fs.copy(
+				this.templatePath('gulp/tasks/!(styles).js'), //ignoring tasks/styles.js 'cause of templating'
+				this.destinationPath('gulp/tasks/'),
+				{
+					ignore : 'gulp/tasks/styles.js'
+				}
+			);
+			this.fs.copyTpl(
+				this.templatePath('gulp/tasks/styles.js'),
+				this.destinationPath('gulp/tasks/styles.js'),
+				{
+					includeLess: this.includeLess,
+					includeSass: this.includeSass,
+					includeCss: this.includeCss,
+					includeBootstrap: this.includeBootstrap,
+                    testFramework: this.options['test-framework']
+				}
+			);
+			this.fs.copy(
+				this.templatePath('_gulpfile.js'),
+				this.destinationPath('gulpfile.js')
+			);
 		},
 
 		packageJSON: function() {
 			this.fs.copyTpl(
 				this.templatePath('_package.json'),
-				this.destinationPath('package.json'), {
+				this.destinationPath('package.json'),
+				{
 					includeLess: this.includeLess,
 					includeSass: this.includeSass,
 					username: this.username,

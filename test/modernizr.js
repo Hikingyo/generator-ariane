@@ -3,7 +3,6 @@
 var path = require('path');
 var assert = require('yeoman-assert');
 var helpers = require('yeoman-test');
-var testPath = '../ariane_test';
 var appPath = '../generators/app';
 
 describe('modernizr feature', function () {

@@ -53,6 +53,7 @@
   "devDependencies": {
     "coveralls": "^2.11.5",
     "istanbul": "^0.4.1",
-    "mocha": "*"
+    "mocha": "*",
+      "yeoman-test": "latest"
   }
 }

@@ -1,7 +1,7 @@
 
 'use strict';
 var path = require('path');
-var helpers = require('yeoman-generator').test;
+var helpers = require('yeoman-test');
 var assert = require('yeoman-assert');
 var testPath = '../ariane_test';
 var appPath = '../generators/app';
@@ -20,7 +20,7 @@ describe('test framework', function () {
         });
 
         it('uses the correct ESLint environment', function () {
-            assert.fileContent('gulpfile.js', 'mocha');
+            assert.fileContent('gulp/config.js', 'mocha');
         });
 
         it('generates the expected fixture', function () {
@@ -41,7 +41,7 @@ describe('test framework', function () {
         });
 
         it('uses the correct ESLint environment', function () {
-            assert.fileContent('gulpfile.js', 'jasmine');
+            assert.fileContent('gulp/config.js', 'jasmine');
         });
 
         it('generates the expected fixture', function () {

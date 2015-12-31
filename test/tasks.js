@@ -1,7 +1,7 @@
 'use strict';
 var path = require('path');
 var assert = require('yeoman-assert');
-var helpers = require('yeoman-generator').test;
+var helpers = require('yeoman-test');
 var testPath = '../ariane_test';
 var appPath = '../generators/app';
 
@@ -17,24 +17,25 @@ describe('gulp tasks', function () {
             .on('end', done);
     });
 
-    it('should contain necessary tasks', function () {
+    it('should copying the tasks files', function(){
         [
             'styles',
             'lint',
-            'lint:test',
             'html',
             'img',
             'fonts',
             'extras',
             'clean',
             'serve',
-            'serve:dist',
-            'serve:test',
             'wiredep',
             'build',
             'default'
         ].forEach(function (task) {
-            assert.fileContent('gulpfile.js', 'gulp.task(\'' + task);
+            assert.file('gulp/tasks/' + task + '.js');
         });
     });
+
+    it('shoudl copyinig the config file', function () {
+        assert.file('gulp/config.js');
+    })
 });

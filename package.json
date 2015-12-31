@@ -1,59 +1,59 @@
 {
-  "name": "generator-ariane",
-  "version": "0.1.5",
-  "description": "A highly customisable generator to scaffold out front-end projects. It works with Gulp and supports LESS/SASS, Bootstrap, Modernizr and ES6 (thanks to Babel).",
-  "license": "MIT",
-  "main": "app/index.js",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/Hikingyo/generator-ariane"
-  },
-  "author": {
-    "name": "Hikingyo",
-    "email": "hikingyo@github.com",
-    "url": "https://github.com/Hikingyo"
-  },
-  "contributors": [
-    {
-      "name": "mlcdf",
-      "email": "mlcdf@github.com",
-      "url": "https://github.com/mlcdf"
+    "name": "generator-ariane",
+    "version": "0.1.5",
+    "description": "A highly customisable generator to scaffold out front-end projects. It works with Gulp and supports LESS/SASS, Bootstrap, Modernizr and ES6 (thanks to Babel).",
+    "license": "MIT",
+    "main": "app/index.js",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/Hikingyo/generator-ariane"
+    },
+    "author": {
+        "name": "Hikingyo",
+        "email": "hikingyo@github.com",
+        "url": "https://github.com/Hikingyo"
+    },
+    "contributors": [
+        {
+            "name": "mlcdf",
+            "email": "mlcdf@github.com",
+            "url": "https://github.com/mlcdf"
+        }
+    ],
+    "scripts": {
+        "test": "mocha --reporter spec --timeout 3000",
+        "coverage": "istanbul cover ./node_modules/.bin/_mocha --report lcovonly -- --reporter spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
+    },
+    "files": [
+        "generators/app"
+    ],
+    "keywords": [
+        "yeoman-generator",
+        "web",
+        "less",
+        "scass",
+        "bootstrap",
+        "foundation",
+        "gulp",
+        "grunt",
+        "html5bp",
+        "modernizr"
+    ],
+    "dependencies": {
+        "chalk": "^1.0.0",
+        "generator-jasmine": "^0.2.2",
+        "generator-mocha": "^0.2.0",
+        "mkdirp": "^0.5.1",
+        "underscore.string": "^3.2.2",
+        "wiredep": "^3.0.0",
+        "yeoman-generator": "^0.22.2",
+        "yosay": "^1.1.0"
+    },
+    "devDependencies": {
+        "yeoman-assert": "^2.1.1",
+        "coveralls": "^2.11.5",
+        "istanbul": "^0.4.1",
+        "mocha": "*",
+        "yeoman-test": "latest"
     }
-  ],
-  "scripts": {
-    "test": "mocha --reporter spec --timeout 3000",
-    "coverage": "istanbul cover ./node_modules/.bin/_mocha --report lcovonly -- --reporter spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
-  },
-  "files": [
-    "generators/app"
-  ],
-  "keywords": [
-    "yeoman-generator",
-    "web",
-    "less",
-    "scass",
-    "bootstrap",
-    "foundation",
-    "gulp",
-    "grunt",
-    "html5bp",
-    "modernizr"
-  ],
-  "dependencies": {
-    "chalk": "^1.0.0",
-    "generator-jasmine": "^0.2.2",
-    "generator-mocha": "^0.2.0",
-    "mkdirp": "^0.5.1",
-    "underscore.string": "^3.2.2",
-    "wiredep": "^3.0.0",
-    "yeoman-assert": "^2.1.1",
-    "yeoman-generator": "^0.22.2",
-    "yosay": "^1.1.0"
-  },
-  "devDependencies": {
-    "coveralls": "^2.11.5",
-    "istanbul": "^0.4.1",
-    "mocha": "*",
-      "yeoman-test": "latest"
-  }
 }

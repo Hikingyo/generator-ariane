@@ -40,7 +40,6 @@
         "modernizr"
     ],
     "dependencies": {
-        "chalk": "^1.0.0",
         "generator-jasmine": "^0.2.2",
         "generator-mocha": "^0.2.0",
         "mkdirp": "^0.5.1",
@@ -50,6 +49,7 @@
         "yosay": "^1.1.0"
     },
     "devDependencies": {
+        "chalk": "^1.1.1",
         "yeoman-assert": "^2.1.1",
         "coveralls": "^2.11.5",
         "istanbul": "^0.4.1",

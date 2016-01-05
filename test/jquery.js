@@ -2,8 +2,8 @@
 
 var path = require('path');
 var assert = require('yeoman-assert');
-var helpers = require('yeoman-generator').test;
-var testPath = '../cionfire_test';
+var helpers = require('yeoman-test');
+var testPath = '../ariane_test';
 var appPath = '../generators/app';
 
 describe('jquery', function () {

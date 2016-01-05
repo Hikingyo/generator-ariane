@@ -1,0 +1,20 @@
+{
+    "rules": {
+        "camelcase": 1,
+        "curly": 1,
+        "default-case": 2,
+        "dot-location": 1,
+        "dot-notation": 1,
+        "eqeqeq": 1,
+        "indent": 4,
+        "no-undef": 2,
+        "no-unused-vars": 1,
+        "no-use-before-define": 2,
+        "strict": [2, "global"],
+        "valid-typeof": 2
+    },
+    "env" : {
+        "browser": true,
+        "node": true
+    }
+}

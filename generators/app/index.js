@@ -1,6 +1,6 @@
 'use strict';
 
-var yeoman = require('yeoman-generator');
+var yeoman = require('yeoman-generator').Base;
 var chalk = require('chalk');
 var yosay = require('yosay');
 var _s = require('underscore.string');
@@ -8,13 +8,13 @@ var mkdirp = require('mkdirp');
 var wiredep = require('wiredep');
 
 
-module.exports = yeoman.generators.Base.extend({
+module.exports = yeoman.extend({
 
 	constructor: function() {
 
 		var testLocal;
 
-		yeoman.Base.apply(this, arguments);
+		yeoman.apply(this, arguments);
 
 		this.option('skip-welcome-message', {
 			desc: 'Skip the welcome message',
@@ -63,7 +63,7 @@ module.exports = yeoman.generators.Base.extend({
 		// Have Yeoman greet the user.
 		if (!this.options['skip-install-message']) {
 			this.log(yosay(
-				'Welcome to the amazing ' + chalk.red('Cionfire') + ' generator!'
+				'Welcome to the amazing ' + chalk.red('Ariane') + ' generator!'
 			));
 		}
 
@@ -78,7 +78,7 @@ module.exports = yeoman.generators.Base.extend({
 				type: 'input',
 				name: 'projectName',
 				message: 'What\'s your project name',
-				default: 'CiOnFire'
+				default: 'ariane'
 			},
 
 			{
@@ -194,8 +194,8 @@ module.exports = yeoman.generators.Base.extend({
             var tplPath;
             var destPath;
             if(this.useGulp){
-                tplPath = '_gulpfile.js';
-                destPath = 'gulpfile.js';
+                tplPath = 'gulp/config.js';
+                destPath = 'gulp/config.js';
             }
             if(this.useGrunt){
                 tplPath = '_Gruntfile.js';
@@ -203,7 +203,8 @@ module.exports = yeoman.generators.Base.extend({
             }
 			this.fs.copyTpl(
 				this.templatePath(tplPath),
-				this.destinationPath(destPath), {
+				this.destinationPath(destPath),
+                {
 					pkg: this.pkg,
 					includeLess: this.includeLess,
 					includeSass: this.includeSass,
@@ -214,12 +215,37 @@ module.exports = yeoman.generators.Base.extend({
                     includeModernizr : this.includeModernizr
 				}
 			);
+            if(this.useGulp){
+                this.fs.copy(
+                    this.templatePath('gulp/tasks/!(styles).js'), //ignoring tasks/styles.js 'cause of templating'
+                    this.destinationPath('gulp/tasks/'),
+                    {
+                        ignore : 'gulp/tasks/styles.js'
+                    }
+                );
+                this.fs.copyTpl(
+                    this.templatePath('gulp/tasks/styles.js'),
+                    this.destinationPath('gulp/tasks/styles.js'),
+                    {
+                        includeLess: this.includeLess,
+                        includeSass: this.includeSass,
+                        includeCss: this.includeCss,
+                        includeBootstrap: this.includeBootstrap,
+                        testFramework: this.options['test-framework']
+                    }
+                );
+                this.fs.copy(
+                    this.templatePath('_gulpfile.js'),
+                    this.destinationPath('gulpfile.js')
+                );
+            }
 		},
 
 		packageJSON: function() {
 			this.fs.copyTpl(
 				this.templatePath('_package.json'),
-				this.destinationPath('package.json'), {
+				this.destinationPath('package.json'),
+				{
 					includeLess: this.includeLess,
 					includeSass: this.includeSass,
                     includeJQuery : this.includeJQuery,
@@ -327,13 +353,17 @@ module.exports = yeoman.generators.Base.extend({
 				this.destinationPath('app/apple-touch-icon.png')
 			);
 			this.fs.copy(
-				this.templatePath('tile.png'),
-				this.destinationPath('app/tile.png')
+				this.templatePath('largetile.png'),
+				this.destinationPath('app/largetile.png')
 			);
 			this.fs.copy(
-				this.templatePath('tile-wide.png'),
-				this.destinationPath('app/tile-wide.png')
+				this.templatePath('smalltile.png'),
+				this.destinationPath('app/smalltile.png')
 			);
+            this.fs.copy(
+                this.templatePath('mediumtile.png'),
+                this.destinationPath('app/mediumtile.png')
+            );
 		},
 
 		html: function() {
@@ -433,8 +463,8 @@ module.exports = yeoman.generators.Base.extend({
 				this.destinationPath('.editorconfig')
 			);
 			this.fs.copy(
-				this.templatePath('jshintrc'),
-				this.destinationPath('.jshintrc')
+				this.templatePath('.eslintrc'),
+				this.destinationPath('.eslintrc')
 			);
 		},
 

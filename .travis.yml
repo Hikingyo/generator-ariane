@@ -1,6 +1,10 @@
 sudo: false
 language: node_js
 node_js:
-- '5.1'
-- '4.1'
+- v5
+- v4
 - '0.12'
+before_script:
+- npm install
+after_success:
+- npm run coverage

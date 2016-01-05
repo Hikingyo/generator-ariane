@@ -2,8 +2,8 @@
 
 var path = require('path');
 var assert = require('yeoman-assert');
-var helpers = require('yeoman-generator').test;
-var testPath = '../cionfire_test';
+var helpers = require('yeoman-test');
+var testPath = '../ariane_test';
 var appPath = '../generators/app';
 
 describe('general', function () {
@@ -35,7 +35,7 @@ describe('general', function () {
         });
 
         it('default projectName', function () {
-            assert.fileContent('package.json', 'CiOnFire');
+            assert.fileContent('package.json', 'ariane');
         });
 
         it('default project description', function () {
@@ -78,7 +78,7 @@ describe('general', function () {
                 'package.json',
                 '.editorconfig',
                 '.gitignore',
-                '.jshintrc',
+                '.eslintrc',
                 '.bowerrc'
             ]);
         });
@@ -88,8 +88,9 @@ describe('general', function () {
                 'app/humans.txt',
                 'app/robots.txt',
                 'app/favicon.ico',
-                'app/tile-wide.png',
-                'app/tile.png',
+                'app/largetile.png',
+                'app/smalltile.png',
+                'app/mediumtile.png',
                 'app/apple-touch-icon.png',
                 'app/browserconfig.xml',
                 'app/crossdomain.xml'

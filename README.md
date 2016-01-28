@@ -8,7 +8,7 @@ development.
 Furthermore, we all have preferences and workflow of our own or we want simply to discover
 other tools.
 So, with this generator, we offer the ability to deploy quickly and in a jiffy a development
-environment from the more simplest to the most complete.
+environment from the simplest to the most complete.
 
 Special thanks to Lineess for our beautiful logo, the teams of HTML5 Boilerplate, Yeoman, Gulp, Grunt, Bower,
 Browsersync and to the creators of

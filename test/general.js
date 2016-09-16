@@ -22,10 +22,10 @@ describe('general', function () {
                         username: '',
                         projectName: '',
                         projectDescription: '',
-                        repoURL : 'git://github.com/taptapship/wiredep.git',
-                        repoType : '',
+                        repoURL: 'git://github.com/taptapship/wiredep.git',
+                        repoType: '',
                         features: [],
-                        stylesSheetLanguage : ''
+                        stylesSheetLanguage: ''
                     })
                 .on('end', done);
         });
@@ -42,11 +42,11 @@ describe('general', function () {
             assert.fileContent('package.json', 'A sample project.')
         });
 
-        it('default project repository type', function(){
+        it('default project repository type', function () {
             assert.fileContent('package.json', 'git');
         });
 
-        it('test repo URL', function(){
+        it('test repo URL', function () {
             assert.fileContent('package.json', /([--:\w?@%&+~#=]*\.[a-z]{2,4}\/{0,2})((?:[?&](?:\w+)=(?:\w+))+|[--:\w?@%&+~#=]+)?/g);
         });
 
@@ -54,7 +54,7 @@ describe('general', function () {
 
     describe('copying files', function () {
         before(function (done) {
-            helpers.run(path.join(__dirname,appPath))
+            helpers.run(path.join(__dirname, appPath))
                 .inDir(testPath)
                 .withOptions({skipInstall: true})
                 .withPrompts(
@@ -62,8 +62,8 @@ describe('general', function () {
                         username: '',
                         projectName: '',
                         projectDescription: '',
-                        repoURL : 'http://my_test_repo.git',
-                        repoType : '',
+                        repoURL: 'http://my_test_repo.git',
+                        repoType: '',
                         features: []
                     })
                 .on('end', done);

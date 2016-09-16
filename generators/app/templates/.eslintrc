@@ -1,4 +1,12 @@
 {
+    <% if(useBabel){ %>
+    "parserOptions": {
+        "ecmaVersion": 6,
+        "sourceType": "script",
+        "ecmaFeatures": {
+            "globalReturn": true
+        }
+    },<% } %>
     "rules": {
         "camelcase": 1,
         "curly": 1,
@@ -10,10 +18,13 @@
         "no-undef": 2,
         "no-unused-vars": 1,
         "no-use-before-define": 2,
-        "strict": [2, "global"],
+        "strict": [
+            2,
+            "global"
+        ],
         "valid-typeof": 2
     },
-    "env" : {
+    "env": {
         "browser": true,
         "node": true
     }

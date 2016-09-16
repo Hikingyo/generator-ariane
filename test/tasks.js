@@ -29,13 +29,14 @@ describe('gulp tasks', function () {
             'serve',
             'wiredep',
             'build',
-            'default'
+            'default',
+            'scripts'
         ].forEach(function (task) {
             assert.file('gulp/tasks/' + task + '.js');
         });
     });
 
-    it('shoudl copyinig the config file', function () {
+    it('should copying the config file', function () {
         assert.file('gulp/config.js');
     })
 });

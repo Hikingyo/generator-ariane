@@ -40,6 +40,10 @@ module.exports = {
             includePaths : ['.']
         }<% } %>
     },
+    scripts: {
+        "src": src + "/scripts/**/*.js",
+        "dest": tmp + "/scripts"
+    },
     img: {
         "src": src + "/img/**/*",
         "dest": dest + "/img",

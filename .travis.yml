@@ -1,9 +1,9 @@
 sudo: false
 language: node_js
 node_js:
+- v6
 - v5
 - v4
-- '0.12'
 before_script:
 - npm install
 after_success:

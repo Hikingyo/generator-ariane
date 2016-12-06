@@ -12,7 +12,7 @@ module.exports = yeoman.extend({
 
     constructor: function () {
 
-        let testLocal;
+        var testLocal;
 
         yeoman.apply(this, arguments);
 
@@ -52,7 +52,7 @@ module.exports = yeoman.extend({
     },
 
     prompting: function () {
-        let done = this.async();
+        var done = this.async();
 
         // Have Yeoman greet the user.
         if (!this.options['skip-install-message']) {
@@ -156,7 +156,7 @@ module.exports = yeoman.extend({
 
         this.prompt(prompts, function (answers) {
 
-            let features = answers.features;
+            var features = answers.features;
 
             function hasFeature(feat) {
                 return features && features.indexOf(feat) !== -1;

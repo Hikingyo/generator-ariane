@@ -37,8 +37,8 @@
     "gulp",
     "ecmascript6",
     "html5bp",
-    "modernizr"
-  ],
+    "modernizr",
+    "babel" ],
   "dependencies": {
     "generator-jasmine": "^0.2.2",
     "generator-mocha": "^0.3.1",

@@ -12,7 +12,7 @@ module.exports = yeoman.extend({
 
     constructor: function () {
 
-        var testLocal;
+        let testLocal;
 
         yeoman.apply(this, arguments);
 
@@ -52,7 +52,7 @@ module.exports = yeoman.extend({
     },
 
     prompting: function () {
-        var done = this.async();
+        let done = this.async();
 
         // Have Yeoman greet the user.
         if (!this.options['skip-install-message']) {
@@ -156,7 +156,7 @@ module.exports = yeoman.extend({
 
         this.prompt(prompts, function (answers) {
 
-            var features = answers.features;
+            let features = answers.features;
 
             function hasFeature(feat) {
                 return features && features.indexOf(feat) !== -1;
@@ -195,7 +195,7 @@ module.exports = yeoman.extend({
                 }
             );
             this.fs.copy(
-                this.templatePath('gulp/tasks/!(styles).js'), //ignoring tasks/styles.js 'cause of templating'
+                this.templatePath('gulp/tasks/!(styles|scripts).js'), //ignoring tasks/styles.js and tasks/scripts.js 'cause of templating'
                 this.destinationPath('gulp/tasks/'),
                 {
                     ignore: 'gulp/tasks/styles.js'
@@ -210,6 +210,13 @@ module.exports = yeoman.extend({
                     includeCss: this.includeCss,
                     includeBootstrap: this.includeBootstrap,
                     testFramework: this.options['test-framework']
+                }
+            );
+            this.fs.copyTpl(
+                this.templatePath('gulp/tasks/scripts.js'),
+                this.destinationPath('gulp/tasks/scripts.js'),
+                {
+                    useBabel: this.useBabel
                 }
             );
             this.fs.copy(

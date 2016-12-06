@@ -29,6 +29,10 @@ describe('babel', function () {
         it('should contain a .babelrc file', function() {
             assert.file('.babelrc');
         })
+
+        it('should tasks/scripts.js contains babel', function() {
+            assert.fileContent('gulp/tasks/scripts.js', 'babel');
+        })
     });
 
     describe('off', function () {

@@ -61,12 +61,13 @@ module.exports = yeoman.extend({
             ));
         }
 
-        var prompts = [{
-            type: 'input',
-            name: 'username',
-            message: 'What\'s your username',
-            default: 'JohnDoe'
-        },
+        var prompts = [
+            {
+                type: 'input',
+                name: 'username',
+                message: 'What\'s your username',
+                default: 'JohnDoe'
+            },
 
             {
                 type: 'input',
@@ -154,7 +155,7 @@ module.exports = yeoman.extend({
             }
         ];
 
-        this.prompt(prompts, function (answers) {
+        this.prompt(prompts).then(function (answers) {
 
             var features = answers.features;
 

@@ -21,7 +21,7 @@
     }
   ],
   "scripts": {
-    "test": "mocha --reporter spec --timeout 10000",
+    "test": "mocha --reporter spec --timeout 3000",
     "coverage": "istanbul cover ./node_modules/.bin/_mocha --report lcovonly -- --reporter spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
   },
   "files": [
@@ -38,13 +38,14 @@
     "ecmascript6",
     "html5bp",
     "modernizr",
-    "babel" ],
+    "babel"
+  ],
   "dependencies": {
     "generator-jasmine": "^0.2.2",
     "generator-mocha": "^0.3.1",
     "mkdirp": "^0.5.1",
     "underscore.string": "^3.3.4",
-    "wiredep": "^3.0.1",
+    "wiredep": "^4.0.0",
     "yeoman-generator": "^0.24.1",
     "yosay": "^1.2.0"
   },
@@ -52,8 +53,8 @@
     "chalk": "^1.1.1",
     "coveralls": "^2.11.12",
     "istanbul": "^0.4.5",
-    "mocha": "^3.0.2",
+    "mocha": "^3.1.0",
     "yeoman-assert": "^2.1.1",
-    "yeoman-test": "^1.5.0"
+    "yeoman-test": "^1.5.1"
   }
 }

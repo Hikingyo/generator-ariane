@@ -1,6 +1,6 @@
 {
   "name": "generator-ariane",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "A highly customisable generator to scaffold out front-end projects. It works with Gulp and supports LESS/SASS, Bootstrap, Modernizr and ES6 (thanks to Babel).",
   "license": "MIT",
   "main": "app/index.js",

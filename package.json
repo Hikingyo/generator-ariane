@@ -41,20 +41,20 @@
     "babel"
   ],
   "dependencies": {
-    "generator-jasmine": "^0.2.2",
-    "generator-mocha": "^0.3.1",
+    "generator-jasmine": "^2.0.1",
+    "generator-mocha": "^2.0.1",
     "mkdirp": "^0.5.1",
     "underscore.string": "^3.3.4",
     "wiredep": "^4.0.0",
-    "yeoman-generator": "^0.24.1",
-    "yosay": "^1.2.0"
+    "yeoman-generator": "^3.1.1",
+    "yosay": "^2.0.2"
   },
   "devDependencies": {
-    "chalk": "^1.1.1",
-    "coveralls": "^2.11.12",
+    "chalk": "^2.4.1",
+    "coveralls": "^3.0.2",
     "istanbul": "^0.4.5",
-    "mocha": "^3.1.0",
-    "yeoman-assert": "^2.1.1",
+    "mocha": "^5.2.0",
+    "yeoman-assert": "^3.1.1",
     "yeoman-test": "^1.5.1"
   }
 }

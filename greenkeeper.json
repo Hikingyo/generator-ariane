@@ -1,0 +1,10 @@
+{
+  "groups": {
+    "default": {
+      "packages": [
+        "generators/app/templates/_package.json",
+        "package.json"
+      ]
+    }
+  }
+}
